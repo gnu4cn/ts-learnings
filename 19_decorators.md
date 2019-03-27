@@ -41,8 +41,8 @@ function sealed(target) {
 
 > 注意：在下面的[类装饰器](#class-decorators)中，可以看到更详细的示例
 
-### 装饰器工厂（Decorator Factories）
 <a name="decorator-factories"></a>
+### 装饰器工厂（Decorator Factories）
 
 可通过编写一个装饰器工厂，来对装饰器作用于声明的方式进行定制。 *装饰器工厂* 就是一个返回由装饰器在运行时调用的表达式的函数（If you want to customize how a decorator is applied to a declaration, we can write a decorator factory. A *Decorator Factory* is simply a function that returns the expression that will be called by the decorator at runtime）。
 
