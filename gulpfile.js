@@ -20,7 +20,7 @@ gulp.task('tsc', () => {
 
 // 这里 watch 里必须使用 gulp.series
 gulp.task('watch', () => {
-    gulp.watch('src/*ts', gulp.series('tsc'));
+    gulp.watch('src/*.ts', gulp.series('tsc'));
 });
 
 

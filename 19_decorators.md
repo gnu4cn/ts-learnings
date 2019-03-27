@@ -29,7 +29,7 @@ tsc --target ES5 --experimentalDecorators
 
 ## 关于装饰器（Decorators）
 
-*装饰器* 是一类特殊的声明，可被附加到[类的声明](#class-decorators)、[方法](#method-decorators)、[访问器](#accessor-decorators)、[属性](#property-decorators)或者[参数](#parameter-decorators)。装饰器使用的形式是`@expression`，其中的`expression`必须评估为一个将在运行时，以有关被装饰声明的信息被调用的函数（Decorators use the form `@expression`, where `expression` must evaluate to a function that will be called at runtime with information about the decorated declaration）。
+*装饰器* 是一类特殊的声明，可被附加到[类的声明](#class-decorators)、[方法](#method-decorators)、[访问器](#accessor-decorators)、[属性](#property-decorators)或者[参数](#parameter-decorators)。装饰器采用`@expression`形式，其中的`expression`求值后必须是一个函数，在运行时该函数将以被装饰的声明有关的信息，被调用到（Decorators use the form `@expression`, where `expression` must evaluate to a function that will be called at runtime with information about the decorated declaration）。
 
 比如，对于给定的装饰器`@sealed`，那么就可能向下面这样写该`sealed`函数：
 
@@ -42,7 +42,6 @@ function sealed(target) {
 > 注意：在下面的[类装饰器](#class-decorators)中，可以看到更详细的示例
 
 ### 装饰器工厂（Decorator Factories）
-<a href="decorator-factories"></a>
 
 可通过编写一个装饰器工厂，来对装饰器作用于声明的方式进行定制。 *装饰器工厂* 就是一个返回由装饰器在运行时调用的表达式的函数（If you want to customize how a decorator is applied to a declaration, we can write a decorator factory. A *Decorator Factory* is simply a function that returns the expression that will be called by the decorator at runtime）。
 
@@ -282,3 +281,66 @@ Class Point {
     get y() { return this._y; }
 }
 ```
+
+使用以下的函数声明，可定义出该`@configurable`装饰器：
+
+```typescript
+function configurable (value: boolean) {
+    return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+        descriptor.configurable = value;    
+    }
+}
+```
+
+
+### 属性装饰器（Property Decorators）
+
+*属性装饰器* 是紧接着某个属性声明之前进行声明的。在声明文件中，以及任何其他外围上下文（比如在某个`declare`类中），都不能使用属性装饰器。
+
+属性装饰器的表达式，将在运行时作为函数进行调用，有着以下两个参数：
+
+1. 某个静态成员的类构造函数，或某个实例成员的类的原型；
+
+2. 该成员的名称。
+
+> **注意** 由于在TypeScript中属性装饰器初始化方式的原因，将不会把 *属性描述符* 提供给属性装饰器。这是因为在定义某个原型的成员时，目前还没有对实例属性进行描述的机制，同时也没有对某个属性的初始化器进行观察与修改的途径。由于上述原因，属性装饰器的返回值也被加以忽略了。那么属性装饰器就只能用于已声明为某个类的、某个指定名称的属性进行观察了。
+
+有了这些信息，就可以记录有关该属性的元数据了，如下面的示例：
+
+```typescript
+class Greeter {
+    @format("Hello, %s")
+    greeting: string;
+
+    constructor (message: string) {
+        this.greeting = message;
+    }
+
+    greet () {
+        let formatString = getFormat(this, "greeting");
+        return formatString.replace(""%s", this.greeting);
+    }
+}
+```
+
+此时就可以使用下的函数声明，来定义该`@format`装饰器与`getFormat`函数：
+
+```typescript
+import "reflect-metadata";
+
+// const formatMetadataKey = Symbol("format");
+// const formatMetadataKey: Symbol;
+//
+// 上面两种写法都不行，估计是新版本的typescript已经不支持 Symbol 类型变量的初始化了
+let formatMetadataKey: Symbol;
+
+function format (formatMetadataKey: string) {
+    return Reflect.metadata(formatMetadataKey, formatString);
+}
+
+function getFormat (target: any, propertyKey: string) {
+    return Reflect.getMetadata(formatMetadataKey, target, propertyKey);
+}
+```
+
+这里的装饰器 `@format("Hello, %s")`是一个 [装饰器工厂](#装饰器工厂（Decorator Factories）)
