@@ -1,0 +1,38 @@
+{
+    "name": "typescript-learnings",
+    "version": "0.1.0",
+    "description": "TypeScript Learning stuffs.",
+    "main": "/dist/main.js",
+    "scripts": {
+        "start": "live-server dist/",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "git-push": "./push.sh"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gnu4cn/typescript-learnings.git"
+    },
+    "keywords": [
+        "TypeScript"
+    ],
+    "author": "Peng Hailin, unisko@gmail.com",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/gnu4cn/typescript-learnings/issues"
+    },
+    "homepage": "https://github.com/gnu4cn/typescript-learnings#readme",
+    "devDependencies": {
+        "browserify": "^14.5.0",
+        "gulp": "^3.9.1",
+        "gulp-sourcemaps": "^2.6.1",
+        "gulp-typescript": "^3.2.3",
+        "gulp-uglify": "^3.0.0",
+        "gulp-util": "^3.0.8",
+        "live-server": "^1.2.0",
+        "tsify": "^3.0.3",
+        "typescript": "^2.6.2",
+        "vinyl-buffer": "^1.0.0",
+        "vinyl-source-stream": "^1.1.0",
+        "watchify": "^3.9.0"
+    }
+}
