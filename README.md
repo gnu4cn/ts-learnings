@@ -2,6 +2,10 @@
 
 ECMAScript 2015 (ES6)已经正式发布，所有浏览器均已支持，同时许多项目，如Angular, Ionic/Electron框架等，均已在往ES6迁移。故需要学习掌握这一新版的Javascript。
 
+## 变更日志
+
++ 2019-3-27, 重新整理`package.json`、`tsconfig.json`与`gulpfile.js`文件，让`.gitignore`生效，令到项目大小得以缩小
+
 ## ES6与 Javascript
 
 ES6仍然是Javascript, 只不过是在我们已经熟悉的Javascript上加入了一些新的东西。使得Javascript更为强大，可以应对大型程序的要求。
