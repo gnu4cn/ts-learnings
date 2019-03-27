@@ -131,6 +131,8 @@ f(): called
 
 4. 对于类，将应用 *类装饰器* （ *Class Decorators* are applied for the class ）。
 
+
+<a name="class-decorators"></a>
 ### 类装饰器
 
 *类装饰器* 是在类声明之前、紧接着类声明处使用的。类声明作用与类的构造器，而可用于对类的定义进行观察、修改或替换。类装饰器不能在声明文件，或任何其它外围上下文中使用（比如在某个`declare`类上。The class decorator is applied to the constructor of the class and can be used to observe, modify or replace a class definition. A class decorator cannot be used in a declaration file, or in any other ambient context(such as on a `declare` class)）。
@@ -194,6 +196,7 @@ class Greeter {
 console.log(new Greeter("world"));
 ```
 
+<a name="method-decorators"></a>
 ### 方法装饰器（Method Decorators）
 
 *方法装饰器* 是在某个方法声明之前、紧接着该方法处使用的。此种装饰器被应用到方法的 *属性描述符* ，而可用于对方法定义进行观察、修改或替换。不能在定义文件、过载或任何其它已有上下文中（比如某个`declare`类中）使用方法装饰器（The decorator is applied to the *Property Descriptor* for the method, and can be used to observe, modify, or replace a method definition. A method decorator cannot be used in a declaration file, on an overload, or in any other ambient context(such as in a `declare` class)）。
@@ -245,6 +248,7 @@ console.log(g.greet());
 
 这里的`@enumerable(false)`装饰器是一个装饰器工厂。在`@enumerable(false)`装饰器被调用时，其就对属性描述符的`enumberable`属性，进行修改。
 
+<a name="accessor-decorators"></a>
 ### 访问器装饰器（Accessor Decorators）
 
 *访问器装饰器* 是在紧接着某个访问器声明之前进行声明的。访问器装饰器是应用到该访问器的 *属性描述符（the Property Descriptor）* 上的，且可用于对某个访问器的定义进行观察、修改或替换。在定义文件、或其他任何外围上下文（比如某个`declare`的类）中，都不能使用访问器的装饰器。
@@ -293,7 +297,7 @@ function configurable (value: boolean) {
 }
 ```
 
-
+<a name="property-decorators"></a>
 ### 属性装饰器（Property Decorators）
 
 *属性装饰器* 是紧接着某个属性声明之前进行声明的。在声明文件中，以及任何其他外围上下文（比如在某个`declare`类中），都不能使用属性装饰器。
@@ -344,4 +348,73 @@ function getFormat (target: any, propertyKey: string) {
 }
 ```
 
-这里的装饰器 `@format("Hello, %s")`是一个 [装饰器工厂](#decorator-factories)
+这里的装饰器 `@format("Hello, %s")`是一个 [装饰器工厂](#decorator-factories) 。在调用`@format("Hello, %s")`时，该函数就使用`reflect-metadata`库`Reflect.metadata`函数，添加该属性`greeting`的一个元数据条目。在调用`getFormat`时，`getFormat`函数就读取到那个格式的元数据值了。
+
+> **注意** 此示例需要`reflect-metadata`库。请参阅 [元数据](#metadata) 部分了解有关 `reflect-metadata`库更多的信息。
+
+
+<a name="parameter-decorators"></a>
+### 参数装饰器（parameter decorators）
+
+*参数装饰器*，是紧接着某个参数声明之前进行声明的。参数装饰器应用到类构造器或类的方法声明的函数上的（the parameter decorator is applied to the function for a class constructor or method declaration）。参数装饰器不能用在声明文件（`.d.ts`）、重载（overload）或其他外围上下文（ambient context，比如在某个`declare`类中）。
+
+参数装饰器的表达式在运行时将作为函数加以调用，其有着以下三个参数：
+
+1. 静态成员的类的构造函数，或实例成员的类的原型；
+
+2. 成员的名称；
+
+3. 对应参数在函数参数列表中的顺序索引。
+
+> **注意** 参数装饰器只能用于对某个方法上已声明的某个参数进行观察（A parameter decorator can only be used to observe that a parameter has been declared on a method）。
+
+以下是一个参数装饰器（`@required`）的示例，该参数装饰器应用到`Greeter`类的成员的参数上：
+
+```typescript
+class Greeter {
+    greeting: string;
+
+    constructor(message: string) {
+        this.greeting = message;
+    }
+
+    @validate
+    greet(@required name: string) {
+        return "Hello " + name + ", " + this.greeting;
+    }
+}
+```
+
+可使用下面的函数声明，来定义出`@required`与`@validate`两个装饰器：
+
+```typescript
+import "reflect-metadata";
+
+let requiredMetadataKey: Symbol;
+
+function required(target: Object, propertyKey: string | symbol, parameterIndex: number) {
+    let existingRequiredParameters: number[] = Reflect.getOwnMetadata(requiredMetadataKey, target, propertyKey) || [];
+
+    existingRequiredParameters.push(parameterIndex);
+    Reflect.defineMetadata(requiredMetadataKey, existingRequiredParameters, target, propertyKey);
+}
+
+function validate (target: any, propertyName: string, descriptor: TypedPropertyDescriptor<Function>) {
+    let method = descriptor.value;
+
+    descriptor.value = function () {
+        let requiredParameters: number[] = Reflect.getOwnMetadata(requiredMetadataKey, target, propertyName);
+
+        if(requiredParameters) {
+            for ( let parameterIndex of requiredParameters ) {
+                if (parameterIndex >= arguments.length || arguments[parameterIndex] === undefined) {
+                    throw new Error("缺少需要的参数。");
+                }
+            }
+        }
+
+        return method.apply(this, arguments);
+    }
+}
+```
+
