@@ -5,7 +5,6 @@
     "compilerOptions": {
         "noImplicitAny": true,
         "target": "es5",
-        "outDir": "dist/",
         "experimentalDecorators": true
     }
 }

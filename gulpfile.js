@@ -18,8 +18,11 @@ gulp.task('tsc', () => {
                           .pipe(gulp.dest('dist'));
 });
 
+// 这里 watch 里必须使用 gulp.series
 gulp.task('watch', () => {
-    gulp.watch('src/*ts', ['tsc']);
+    gulp.watch('src/*ts', gulp.series('tsc'));
 });
 
-gulp.task('default', gulp.series('copy-html', 'tsc', 'tsc'));
+
+// 这里必须要有一个 default 任务
+gulp.task('default', gulp.series('copy-html', 'tsc', 'watch'));
