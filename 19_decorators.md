@@ -42,7 +42,7 @@ function sealed(target) {
 > 注意：在下面的[类装饰器](#class-decorators)中，可以看到更详细的示例
 
 <a name="decorator-factories"></a>
-### 装饰器工厂（Decorator Factories）
+## 装饰器工厂（Decorator Factories）
 
 可通过编写一个装饰器工厂，来对装饰器作用于声明的方式进行定制。 *装饰器工厂* 就是一个返回由装饰器在运行时调用的表达式的函数（If you want to customize how a decorator is applied to a declaration, we can write a decorator factory. A *Decorator Factory* is simply a function that returns the expression that will be called by the decorator at runtime）。
 
@@ -58,7 +58,7 @@ function color (value: string) { // 这是装饰器工厂
 
 > 注意，在下面的[方法装饰器](#method-decorators)部分，可见到装饰工厂的更详细示例。
 
-### 装饰器的复合（Decorator Composition）
+## 装饰器的复合（Decorator Composition）
 
 对某个声明，可应用多个装饰器，如下面的示例中那样：
 
@@ -119,7 +119,7 @@ g(): called
 f(): called
 ```
 
-### 装饰器求值（Decorator Evaluation）
+## 装饰器求值（Decorator Evaluation）
 
 对于将装饰器如何应用到类内部的各种声明，有着以下可遵循的定义良好的顺序：
 
@@ -133,7 +133,7 @@ f(): called
 
 
 <a name="class-decorators"></a>
-### 类装饰器
+## 类装饰器
 
 *类装饰器* 是在类声明之前、紧接着类声明处使用的。类声明作用与类的构造器，而可用于对类的定义进行观察、修改或替换。类装饰器不能在声明文件，或任何其它外围上下文中使用（比如在某个`declare`类上。The class decorator is applied to the constructor of the class and can be used to observe, modify or replace a class definition. A class decorator cannot be used in a declaration file, or in any other ambient context(such as on a `declare` class)）。
 
@@ -197,7 +197,7 @@ console.log(new Greeter("world"));
 ```
 
 <a name="method-decorators"></a>
-### 方法装饰器（Method Decorators）
+## 方法装饰器（Method Decorators）
 
 *方法装饰器* 是在某个方法声明之前、紧接着该方法处使用的。此种装饰器被应用到方法的 *属性描述符* ，而可用于对方法定义进行观察、修改或替换。不能在定义文件、过载或任何其它已有上下文中（比如某个`declare`类中）使用方法装饰器（The decorator is applied to the *Property Descriptor* for the method, and can be used to observe, modify, or replace a method definition. A method decorator cannot be used in a declaration file, on an overload, or in any other ambient context(such as in a `declare` class)）。
 
@@ -249,7 +249,7 @@ console.log(g.greet());
 这里的`@enumerable(false)`装饰器是一个装饰器工厂。在`@enumerable(false)`装饰器被调用时，其就对属性描述符的`enumberable`属性，进行修改。
 
 <a name="accessor-decorators"></a>
-### 访问器装饰器（Accessor Decorators）
+## 访问器装饰器（Accessor Decorators）
 
 *访问器装饰器* 是在紧接着某个访问器声明之前进行声明的。访问器装饰器是应用到该访问器的 *属性描述符（the Property Descriptor）* 上的，且可用于对某个访问器的定义进行观察、修改或替换。在定义文件、或其他任何外围上下文（比如某个`declare`的类）中，都不能使用访问器的装饰器。
 
@@ -298,7 +298,7 @@ function configurable (value: boolean) {
 ```
 
 <a name="property-decorators"></a>
-### 属性装饰器（Property Decorators）
+## 属性装饰器（Property Decorators）
 
 *属性装饰器* 是紧接着某个属性声明之前进行声明的。在声明文件中，以及任何其他外围上下文（比如在某个`declare`类中），都不能使用属性装饰器。
 
@@ -354,7 +354,7 @@ function getFormat (target: any, propertyKey: string) {
 
 
 <a name="parameter-decorators"></a>
-### 参数装饰器（parameter decorators）
+## 参数装饰器（parameter decorators）
 
 *参数装饰器*，是紧接着某个参数声明之前进行声明的。参数装饰器应用到类构造器或类的方法声明的函数上的（the parameter decorator is applied to the function for a class constructor or method declaration）。参数装饰器不能用在声明文件（`.d.ts`）、重载（overload）或其他外围上下文（ambient context，比如在某个`declare`类中）。
 
@@ -418,3 +418,78 @@ function validate (target: any, propertyName: string, descriptor: TypedPropertyD
 }
 ```
 
+这里的`@required`装饰器加入了一个将该参数标识为必需的元数据条目（the `@required` decorator adds a metadata entry that marks the parameter as required）。而`@validate`装饰器随后将现有的`greet`方法，封装为一个在调用该原始方法前，对参数进行验证的函数。
+
+> **注意** 此示例需要`reflect-metadata`库。请参阅 [元数据](#metadata) 了解更多有个该`reflect-metadata`库的信息。
+
+<a name="metadata"></a>
+## 关于元数据（Metadata）
+
+上面的示例使用到加入了 [实验性元数据 API](https://github.com/rbuckton/ReflectDecorators)的 `reflect-metadata`库。该库还没有成为 ECMASript（JavaScript）标准的一部分。但如果装饰器一旦作为ECMAScript标准而正式采纳，那么这些扩展也将被提议采用。
+
+可通过`npm`来安装该库：
+
+```sh
+npm i reflect-metadata --save-dev
+```
+
+TypeScript包含了对那些有着装饰器的声明的确定类型的元数据的生成的实验性支持（TypeScript includes experimental support for emitting certain types of metadata for declarations that have decorators）。要开启此项实验性支持功能，就必须通过命令行或在`tsconfig.json`文件中对`emitDecoratorMetadata`编译器选项进行设置：
+
+**命令行方式**：
+
+```sh
+tsc --target ES5 --experimentalDecorators --emitDecoratorMetadata
+```
+
+**`tsconfig.json方式`**：
+
+```json
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    }
+}
+```
+
+在开启了这些选项，同时导入了`reflect-metadata`库之后，那些设计阶段的额外类型信息，将在运行时得以暴露。
+
+在以下示例中，可观察到这一点起了作用：
+
+```typescript
+import "reflect-metadata";
+
+class Point {
+    x: number;
+    y: number;
+}
+
+class Line {
+    private _p0: Point;
+    private _p1: Point;
+
+    @validate
+    set p0(value: Point) { this._p0 = value; }
+    get p0() { return this._p0; }
+
+
+    @validate
+    set p1(value: Point) { this._p1 = value; }
+    get p1() { return this._p1; }
+}
+
+function validate<T>(target: any, propertyKey: string, descriptor: TypedPropertyDescriptor<T>) {
+    let set = descriptor.set;
+    descriptor.set = function(value: T) {
+        let type = Reflect.getMetadata("design:type", target, propertyKey);
+
+        if (!(value instanceof type)) {
+            throw new TypeError("无效的类型。");
+        }
+        set(value);
+    }
+}
+```
+
+> **注意** 装饰器元数据是一项实验性特性，TypeScript以后的发布可能引入对此的剧烈变动。
