@@ -64,4 +64,15 @@
 
 ## `/// <reference no-default-lib="true" />`
 
+本指令将某个文件标记为 *默认库（default library）*。在`lib.d.ts`文件顶部可以看到此注释机器不同变种。
+
+该指令告诉编译器在编译中不要包含默认库（比如`lib.d.ts`）。其影响与在命令行上传入`--noLib`选项类似。
+
+还要注意在传入`--skipDefaultLibCheck`参数时，编译器仅跳过那些有着`/// <reference no-default-with="true" />`的文件的检查。
+
+
+## `/// <amd-module />`
+
+>  *注* AMD是指异步模块定义API，Asynchronous Module Definition API, 参见[github.com/amdjs](https://github.com/amdjs/amdjs-api/wiki/AMD)。
+
 
