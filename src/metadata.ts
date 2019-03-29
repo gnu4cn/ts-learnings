@@ -31,4 +31,5 @@ function validate<T>(target: any, propertyKey: string, descriptor: TypedProperty
     }
 }
 
-let l1 = new Line()
+let l1 = new Line();
+console.log(l1);
