@@ -73,6 +73,34 @@
 
 ## `/// <amd-module />`
 
->  *注* AMD是指异步模块定义API，Asynchronous Module Definition API, 参见[github.com/amdjs](https://github.com/amdjs/amdjs-api/wiki/AMD)。
+>  *注:* AMD是指异步模块定义API，Asynchronous Module Definition API, 参见[github.com/amdjs](https://github.com/amdjs/amdjs-api/wiki/AMD)。
 
+默认情况下AMD的模块是匿名生成的。这在有使用其他工具，诸如某些打包器（如`r.js`），来处理生成的模块时可能导致某些问题。
 
+`amd-module`指令允许将可选的模块名称，传递给编译器：
+
+*amdModule.ts*
+
+```typescript
+/// <amd-module name="NamedModule" />
+export class C {}
+```
+
+上面的代码的效果是将名称`NamedModule`，作为对 AMD `define`的调用的一部分，赋予给该模块：
+
+*amdModule.js*
+
+```javascript
+define("NamedModule", ["require", "exports"], function (require, exports) {
+    var C = (function () {
+        function C() {}
+        return C;
+    })();
+
+    exports.C = C;
+});
+```
+
+## `<amd-dependency />`
+
+> **注意**: 该指令已被启用。请直接使用 `import "moduleName";` 语句。
