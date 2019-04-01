@@ -1,5 +1,7 @@
 # TypeScript基础数据类型
 
+[原文](https://www.typescriptlang.org/docs/handbook/basic-types.html)
+
 为令到程序有用，那么就需要能够处理一些最简单的数据单元：数字、字符串、数据结构、布尔值等等。TypeScript支持那些在JavaScript所期望的同样类型，并额外带有一种可将数值与字符串联系起来的枚举类型（For programs to be useful, we need to be able to work with some of the simplest units of data: numbers, strings, structures, boolean values, and the like. In TypeScript, we support much the same types as you would expect in JavaScript, with a convenient enumeration type thrown in to help things along）。
 
 ## 布尔值
