@@ -9,7 +9,7 @@
 某个目录下存在文件`tsconfig.json`，那么就表明该目录是某个TypeScript项目的根目录。`tsconfig.json`文件指定了有哪些根文件，以及需要哪些编译器选项来对该项目进行编译。项目是以以下方式之一进行编译的：
 
 
-## `tsconfig.json`**的运用
+## `tsconfig.json`的运用
 
 + 通过不带有文件的方式调用 `tsc`命令，此时编译器从当前目录开始，进而沿父目录链往上搜索`tsconfig.json`文件（by invoking `tsc` with no input files, in which case the compiler searches for the `tsconfig.json` file starting in the current directory and continuing up the parent directory chain）。
 
@@ -78,11 +78,11 @@
 
 `files`属性取的是一个相对或绝对文件路径的清单。而`include`与`exclude`属性，则取的是类似于glob的文件模式清单（请参考 [Glob_(programming), Wikipedia](https://en.wikipedia.org/wiki/Glob_(programming))，[glob介绍](https://www.jianshu.com/p/ce7cf53274bb)）。支持以下glob通配符：
 
-    + `*` 匹配零个或更多字符（不包含目录分隔符，`*` matches zero or more characters(excluding directory separators)）
++ `*` 匹配零个或更多字符（不包含目录分隔符，`*` matches zero or more characters(excluding directory separators)）
 
-    + `?` 匹配任意的一个字符（不包含目录分隔符，`?` matches any one character(excluding directory separators)）
-    
-    + `**/` 递归地匹配所有子目录（`**/` recursively matches any subdirectory）
++ `?` 匹配任意的一个字符（不包含目录分隔符，`?` matches any one character(excluding directory separators)）
+
++ `**/` 递归地匹配所有子目录（`**/` recursively matches any subdirectory）
 
 在某个glob模式片段中仅包含了 `*` 或 `.*` 时，那么只有那些扩展被支持的文件才被包含进来（也就是`.ts`、`.tsx`与`.d.ts`，而在`allowJs`被设置为`true`的情况下，也包含`.jx`与`.jsx`）。
 
