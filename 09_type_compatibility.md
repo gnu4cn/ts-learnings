@@ -120,8 +120,8 @@ x = y; // 没有问题
 
 // TSError: ⨯ Unable to compile TypeScript
 // src/main.ts (6,1): Type '() => { name: string; }' is not assignable to type '() => { name: string; location: string; }'.
-//  Type '{ name: string; }' is not assignable to type '{ name: string; location: string; }'.
-//    Property 'location' is missing in type '{ name: string; }'. (2322)
+// Type '{ name: string; }' is not assignable to type '{ name: string; location: string; }'.
+// Property 'location' is missing in type '{ name: string; }'. (2322)
 y = x; // 错误，因为`x`缺少一个location属性
 ```
 
