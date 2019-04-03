@@ -1,7 +1,7 @@
 # tsconfig.json
 
 
-[原文](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
+[原文](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html): https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
 
 
 ## 概述
