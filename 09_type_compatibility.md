@@ -61,7 +61,7 @@ let y = { name: "Alice", location: "Seattle" };
 
 // TSError: ⨯ Unable to compile TypeScript
 // src/main.ts (12,1): Type '{ name: string; location: string; }' is not assignable to type 'Named'.
-//  Property 'age' is missing in type '{ name: string; location: string; }'. (2322)
+// Property 'age' is missing in type '{ name: string; location: string; }'. (2322)
 x = y;
 ```
 
