@@ -1,0 +1,534 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>泛型 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="07_enums.html" />
+    
+    
+    <link rel="prev" href="05_functions.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01_basic_data_types.html">
+            
+                <a href="01_basic_data_types.html">
+            
+                    
+                    基本数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02_variables_declaration.html">
+            
+                <a href="02_variables_declaration.html">
+            
+                    
+                    变量声明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="03_classes.html">
+            
+                <a href="03_classes.html">
+            
+                    
+                    类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="04_interfaces.html">
+            
+                <a href="04_interfaces.html">
+            
+                    
+                    接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="05_functions.html">
+            
+                <a href="05_functions.html">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7" data-path="06_generics.html">
+            
+                <a href="06_generics.html">
+            
+                    
+                    泛型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="07_enums.html">
+            
+                <a href="07_enums.html">
+            
+                    
+                    枚举
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="08_type_inference.html">
+            
+                <a href="08_type_inference.html">
+            
+                    
+                    类型推导
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >泛型</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x6CDB;&#x578B;&#xFF08;generics&#xFF09;">&#x6CDB;&#x578B;&#xFF08;Generics&#xFF09;</h1>
+<h2 id="&#x7B80;&#x4ECB;">&#x7B80;&#x4ECB;</h2>
+<p>&#x8F6F;&#x4EF6;&#x5DE5;&#x7A0B;&#x7684;&#x4E00;&#x4E2A;&#x4E3B;&#x8981;&#x90E8;&#x5206;&#xFF0C;&#x5C31;&#x662F;&#x6709;&#x5173;&#x4E0D;&#x4EC5;&#x6709;&#x7740;&#x826F;&#x597D;&#x5B9A;&#x4E49;&#x5E76;&#x5177;&#x5907;&#x4E00;&#x81F4;&#x6027;&#xFF0C;&#x800C;&#x4E14;&#x5177;&#x5907;&#x53EF;&#x91CD;&#x7528;&#x6027;&#x7EC4;&#x4EF6;&#x7684;&#x6784;&#x5EFA;&#xFF08;A major part of software engineering, is building components that not only have well-defined and consistent APIs&#xFF09;&#x3002;&#x65E2;&#x53EF;&#x5904;&#x7406;&#x73B0;&#x4ECA;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x53C8;&#x80FD;&#x5904;&#x7406;&#x5F80;&#x540E;&#x7684;&#x6570;&#x636E;&#x7684;&#x7EC4;&#x4EF6;&#xFF0C;&#x5BF9;&#x4E8E;&#x6784;&#x5EFA;&#x5927;&#x578B;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF0C;&#x5C06;&#x5E26;&#x6765;&#x6700;&#x7075;&#x6D3B;&#x7684;&#x6548;&#x80FD;&#x3002;</p>
+<p>&#x5728;&#x8BF8;&#x5982;C#&#x4E0E;Java&#x8FD9;&#x6837;&#x7684;&#x7A0B;&#x5E8F;&#x8BED;&#x8A00;&#x4E2D;&#xFF0C;&#x5B83;&#x4EEC;&#x5DE5;&#x5177;&#x7BB1;&#x4E2D;&#x7528;&#x4E8E;&#x53EF;&#x91CD;&#x7528;&#x7EC4;&#x4EF6;&#x521B;&#x5EFA;&#x7684;&#x4E3B;&#x8981;&#x5DE5;&#x5177;&#x4E4B;&#x4E00;&#xFF0C;&#x5C31;&#x662F; <em>&#x6CDB;&#x578B;&#xFF08;generics&#xFF09;</em>&#xFF0C;&#x501F;&#x52A9;&#x4E8E;&#x6CDB;&#x578B;&#x7279;&#x6027;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x51FA;&#x53EF;&#x5DE5;&#x4F5C;&#x4E8E;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#xFF0C;&#x800C;&#x975E;&#x5355;&#x4E00;&#x7C7B;&#x578B;&#x7684;&#x7EC4;&#x4EF6;&#x3002;&#x8FD9;&#x5C31;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x5BF9;&#x7EC4;&#x4EF6;&#x8FDB;&#x884C;&#x6D88;&#x8D39;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;&#x5176;&#x5404;&#x81EA;&#x7684;&#x7C7B;&#x578B;&#x3002;</p>
+<p>&#xFF08;&#x6CE8;&#xFF1A;<a href="https://en.wikipedia.org/wiki/Generic_programming" target="_blank">Wikipedia&#xFF1A;&#x6CDB;&#x578B;</a> &#xFF09;</p>
+<h2 id="&#x6CDB;&#x578B;&#x5165;&#x95E8;">&#x6CDB;&#x578B;&#x5165;&#x95E8;</h2>
+<p>&#x8FD9;&#x91CC;&#x4EE5;&#x6CDB;&#x578B;&#x7279;&#x6027;&#x7684;&#x201C;Hello World&#x201D;&#x5F00;&#x59CB;&#x3002;&#x4E0B;&#x9762;&#x7684;<code>identity</code>&#x51FD;&#x6570;&#x5C06;&#x8FD4;&#x56DE;&#x4EFB;&#x4F55;&#x4F20;&#x9012;&#x7ED9;&#x5B83;&#x7684;&#x4E1C;&#x897F;&#x3002;&#x53EF;&#x5C06;&#x5176;&#x60F3;&#x4F5C;&#x4E0E;<code>echo</code>&#x547D;&#x4EE4;&#x7C7B;&#x4F3C;&#x3002;</p>
+<p>&#x5728;&#x6CA1;&#x6709;&#x6CDB;&#x578B;&#x7279;&#x6027;&#x65F6;&#xFF0C;&#x5C31;&#x8981;&#x4E48;&#x5FC5;&#x987B;&#x7ED9;&#x4E88;&#x8BE5;<code>identity</code>&#x51FD;&#x6570;&#x67D0;&#x79CD;&#x6307;&#x5B9A;&#x7C7B;&#x578B;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">identity</span> (<span class="hljs-params">arg: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">number</span> </span>{
+    <span class="hljs-keyword">return</span> arg;
+}
+</code></pre>
+<p>&#x6216;&#x8005;&#x4F7F;&#x7528;<code>any</code>&#x7C7B;&#x578B;&#x7C7B;&#x63CF;&#x8FF0;&#x8BE5;<code>identity</code>&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">identity</span> (<span class="hljs-params">arg: <span class="hljs-built_in">any</span></span>): <span class="hljs-title">any</span> </span>{
+    <span class="hljs-keyword">return</span> arg;
+}
+</code></pre>
+<p>&#x5C3D;&#x7BA1;&#x4F7F;&#x7528;<code>any</code>&#x5177;&#x5907;&#x6CDB;&#x578B;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x6837;&#x505A;&#x5BFC;&#x81F4;&#x8BE5;&#x51FD;&#x6570;&#x63A5;&#x6536;&#x4EFB;&#x4F55;&#x4E14;&#x6240;&#x6709;&#x7C7B;&#x578B;&#x7684;<code>arg</code>&#xFF0C;&#x4E0D;&#x8FC7;&#x5B9E;&#x9645;&#x4E0A;&#x4E22;&#x5931;&#x4E86;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x503C;&#x65F6;&#x7684;&#x7C7B;&#x578B;&#x3002;&#x6BD4;&#x5982;&#x5047;&#x8BBE;&#x4F20;&#x5165;&#x4E86;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#xFF0C;&#x80FD;&#x5F97;&#x5230;&#x7684;&#x4FE1;&#x606F;&#x5C31;&#x4EC5;&#x662F;&#x53EF;&#x8FD4;&#x56DE;&#x4EFB;&#x610F;&#x7C7B;&#x578B;&#xFF08;While using <code>any</code> is certainly genric in that it will cause the fucntion to accept any and all types for the type of <code>any</code>, we actually are losing the information about what that type was when the function returns. If we passed in a number, the only information we have is that any type could be returned&#xFF09;&#x3002;</p>
+<p>&#x53D6;&#x800C;&#x4EE3;&#x4E4B;&#x7684;&#x662F;&#xFF0C;&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x67D0;&#x79CD;&#x6355;&#x83B7;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x901A;&#x8FC7;&#x6B64;&#x65B9;&#x5F0F;&#x5E26;&#x6CE8;&#x89E3;&#x5C06;&#x8FD4;&#x56DE;&#x4F55;&#x79CD;&#x7C7B;&#x578B;&#x3002;&#x90A3;&#x4E48;&#x8FD9;&#x91CC;&#x5C06;&#x4F7F;&#x7528; <em>&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#xFF08;type variable&#xFF09;</em>&#xFF0C;&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#x4E0E;&#x4F5C;&#x7528;&#x5728;&#x503C;&#x4E0A;&#x7684;&#x53D8;&#x91CF;&#x4E0D;&#x540C;&#xFF0C;&#x5176;&#x662F;&#x4E00;&#x79CD;&#x4F5C;&#x7528;&#x5728;&#x7C7B;&#x578B;&#x4E0A;&#x7684;&#x53D8;&#x91CF;&#xFF08;Instead, we need a way of capturing the type of the argument in such a way that we can also use it to denote what is being returned. Here, we will use a <em>type variable</em>, a special kind of variable that works on types rather than values&#xFF09;&#x3002;</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">identity</span>&lt;<span class="hljs-title">T</span>&gt; (<span class="hljs-params">arg: T</span>): <span class="hljs-title">T</span> </span>{
+    <span class="hljs-keyword">return</span> arg;
+}
+</code></pre>
+<p>&#x73B0;&#x5728;&#x5DF2;&#x7ECF;&#x7ED9;<code>identity</code>&#x51FD;&#x6570;&#x52A0;&#x4E0A;&#x4E86;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#x53D8;&#x91CF;<code>T</code>&#x3002;&#x6B64;<code>T</code>&#x5141;&#x8BB8;&#x5BF9;&#x7528;&#x6237;&#x63D0;&#x4F9B;&#x7684;&#x7C7B;&#x578B;&#x8FDB;&#x884C;&#x6355;&#x83B7;&#xFF08;&#x6BD4;&#x5982;&#xFF1A;<code>number</code>&#xFF09;&#xFF0C;&#x56E0;&#x6B64;&#x5C31;&#x53EF;&#x4EE5;&#x4E8E;&#x968F;&#x540E;&#x4F7F;&#x7528;&#x8BE5;&#x4FE1;&#x606F;&#x3002;&#x8FD9;&#x91CC;&#x518D;&#x5EA6;&#x4F7F;&#x7528;<code>T</code>&#x4F5C;&#x4E3A;&#x8FD4;&#x56DE;&#x503C;&#x7C7B;&#x578B;&#x3002;&#x5728;&#x68C0;&#x67E5;&#x65F6;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5BF9;&#x53C2;&#x6570;&#x4E0E;&#x8FD4;&#x56DE;&#x503C;&#x7C7B;&#x578B;&#xFF0C;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x540C;&#x4E00;&#x79CD;&#x7C7B;&#x578B;&#x4E86;&#x3002;&#x8FD9;&#x6837;&#x505A;&#x5C31;&#x5141;&#x8BB8;&#x5C06;&#x51FD;&#x6570;&#x4E00;&#x4FA7;&#x7684;&#x7C7B;&#x578B;&#x4FE1;&#x606F;&#xFF0C;&#x8FD0;&#x9001;&#x5230;&#x53E6;&#x4E00;&#x4FA7;&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#x5C31;&#x8BF4;&#x6B64;&#x7248;&#x672C;&#x7684;<code>identity</code>&#x5C31;&#x662F;&#x6CDB;&#x578B;&#x7684;&#x4E86;&#xFF0C;&#x56E0;&#x4E3A;&#x5176;&#x5728;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x7C7B;&#x578B;&#x4E0A;&#x90FD;&#x53EF;&#x8FD0;&#x4F5C;&#x3002;&#x4E0E;&#x4F7F;&#x7528;<code>any</code>&#x4E0D;&#x540C;&#xFF0C;&#x6CDB;&#x578B;&#x7684;&#x4F7F;&#x7528;&#x4E0E;&#x4E0A;&#x9762;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5BF9;&#x53C2;&#x6570;&#x4E0E;&#x8FD4;&#x56DE;&#x503C;&#x7C7B;&#x578B;&#x90FD;&#x7528;&#x4E86;&#x6570;&#x5B57;&#x7684;<code>identity</code>&#x51FD;&#x6570;&#x540C;&#x6837;&#x7CBE;&#x786E;&#xFF08;&#x4E5F;&#x5C31;&#x662F;&#x5176;&#x5E76;&#x6CA1;&#x6709;&#x4E22;&#x5931;&#x4EFB;&#x4F55;&#x4FE1;&#x606F;&#xFF09;&#x3002;</p>
+<p>&#x800C;&#x4E00;&#x65E6;&#x5199;&#x597D;&#x8FD9;&#x4E2A;&#x6CDB;&#x578B;&#x7684;<code>identity</code>&#x51FD;&#x6570;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x8C03;&#x7528;&#x4E86;&#x3002;&#x7B2C;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x662F;&#x5C06;&#x6240;&#x6709;&#x53C2;&#x6570;&#xFF0C;&#x5305;&#x62EC;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#xFF0C;&#x4F20;&#x9012;&#x7ED9;&#x8BE5;&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> output = identity&lt;<span class="hljs-built_in">string</span>&gt;(<span class="hljs-string">&quot;myString&quot;</span>);
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x663E;&#x5F0F;&#x5730;&#x5C06;<code>T</code>&#x7F6E;&#x4E3A;<code>string</code>&#xFF0C;&#x4F5C;&#x4E3A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7684;&#x53C2;&#x6570;&#x4E4B;&#x4E00;&#xFF0C;&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x7684;<code>&lt;&gt;</code>&#x800C;&#x975E;<code>()</code>&#x8FDB;&#x884C;&#x6CE8;&#x8BB0;&#x3002;</p>
+<p>&#x7B2C;&#x4E8C;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x4E5F;&#x662F;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x4E86;&#x3002;&#x5C31;&#x662F;&#x4F7F;&#x7528; <em>&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x63A8;&#x7406;(type argument inference)</em> -- &#x4E5F;&#x5C31;&#x662F;&#xFF0C;&#x8BA9;&#x7F16;&#x8BD1;&#x5668;&#x57FA;&#x4E8E;&#x4F20;&#x9012;&#x7ED9;&#x5B83;&#x7684;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#xFF0C;&#x6765;&#x81EA;&#x52A8;&#x8BBE;&#x5B9A;<code>T</code>&#x7684;&#x503C;&#x3002;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> output = identity(<span class="hljs-string">&quot;myString&quot;</span>); <span class="hljs-comment">// &#x8F93;&#x51FA;&#x7C7B;&#x578B;&#x5C06;&#x662F; `string`</span>
+</code></pre>
+<p>&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x4E0D;&#x5FC5;&#x663E;&#x5F0F;&#x5730;&#x4F20;&#x5165;&#x5C16;&#x62EC;&#x53F7;&#xFF08;the angle brackets, <code>&lt;&gt;</code>&#xFF09;&#x4E2D;&#x7684;&#x7C7B;&#x578B;&#xFF1B;&#x7F16;&#x8BD1;&#x5668;&#x53EA;&#x9700;&#x67E5;&#x770B;&#x503C;<code>myString</code>&#xFF0C;&#x5E76;&#x5C06;<code>T</code>&#x8BBE;&#x7F6E;&#x4E3A;<code>myString</code>&#x7684;&#x7C7B;&#x578B;&#x3002;&#x5C3D;&#x7BA1;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x63A8;&#x7406;&#x5728;&#x4FDD;&#x6301;&#x4EE3;&#x7801;&#x7B80;&#x77ED;&#x53CA;&#x66F4;&#x5177;&#x53EF;&#x8BFB;&#x6027;&#x4E0A;&#xFF0C;&#x80FD;&#x591F;&#x4F5C;&#x4E3A;&#x4E00;&#x9879;&#x6709;&#x7528;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x4F46;&#x5728;&#x4E00;&#x4E9B;&#x66F4;&#x4E3A;&#x590D;&#x6742;&#x7684;&#x793A;&#x4F8B;&#x4E2D;&#x53EF;&#x80FD;&#x53D1;&#x751F;&#x7F16;&#x8BD1;&#x5668;&#x65E0;&#x6CD5;&#x5B8C;&#x6210;&#x7C7B;&#x578B;&#x63A8;&#x7406;&#x65F6;&#xFF0C;&#x4ECD;&#x9700;&#x50CF;&#x5148;&#x524D;&#x7684;&#x793A;&#x4F8B;&#x90A3;&#x6837;&#xFF0C;&#x663E;&#x5F0F;&#x5730;&#x4F20;&#x5165;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#xFF0C;</p>
+<h2 id="&#x6CDB;&#x578B;&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#x7684;&#x4F7F;&#x7528;&#xFF08;working-with-generic-type-variables&#xFF09;">&#x6CDB;&#x578B;&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#x7684;&#x4F7F;&#x7528;&#xFF08;Working with Generic Type Variables&#xFF09;</h2>
+<p>&#x5728;&#x4E00;&#x5F00;&#x59CB;&#x4F7F;&#x7528;&#x6CDB;&#x578B;&#x65F6;&#xFF0C;&#x5C06;&#x6CE8;&#x610F;&#x5230;&#x5728;&#x521B;&#x5EFA;&#x8BF8;&#x5982;<code>identify</code>&#x8FD9;&#x6837;&#x7684;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x5C06;&#x5F3A;&#x5236;&#x5728;&#x51FD;&#x6570;&#x4F53;&#x4E2D;&#x6B63;&#x786E;&#x5730;&#x4F7F;&#x7528;&#x4EFB;&#x610F;&#x6CDB;&#x578B;&#x7684;&#x7C7B;&#x578B;&#x5316;&#x53C2;&#x6570;&#x3002;&#x90A3;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x53EF;&#x5C06;&#x8FD9;&#x4E9B;&#x53C2;&#x6570;&#xFF0C;&#x50CF;&#x662F;&#x4EFB;&#x610F;&#x53CA;&#x6240;&#x6709;&#x7C7B;&#x578B;&#x90A3;&#x6837;&#x5BF9;&#x5F85;&#xFF08;When you begin to use generics, you&apos;ll notice that when you create generic functions like <code>identity</code>, the compiler will enforce that you use any generically typed parameters in the body of the function correctly. That is, that you actually treat these parameters as if they could be any and all types&#xFF09;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x4ECD;&#x7136;&#x4EE5;&#x524D;&#x9762;&#x7684;<code>identity</code>&#x51FD;&#x6570;&#x505A;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">identity</span>&lt;<span class="hljs-title">T</span>&gt;(<span class="hljs-params">arg: T</span>): <span class="hljs-title">T</span> </span>{
+    <span class="hljs-keyword">return</span> arg;
+}
+</code></pre>
+<p>&#x90A3;&#x4E48;&#x5982;&#x679C;&#x5728;&#x5404;&#x4E2A;&#x8C03;&#x7528;&#x4E2D;&#x8981;&#x540C;&#x65F6;&#x8BB0;&#x5F55;&#x53C2;&#x6570;<code>arg</code>&#x7684;&#x957F;&#x5EA6;&#x5230;&#x63A7;&#x5236;&#x53F0;&#x4F1A;&#x600E;&#x6837;&#x5462;&#xFF1F;&#x5C31;&#x53EF;&#x80FD;&#x4F1A;&#x5C1D;&#x8BD5;&#x8FD9;&#x6837;&#x6765;&#x7F16;&#x5199;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">identity</span>&lt;<span class="hljs-title">T</span>&gt;(<span class="hljs-params">arg: T</span>): <span class="hljs-title">T</span> </span>{
+    <span class="hljs-built_in">console</span>.log(arg.length); <span class="hljs-comment">// Property &apos;length&apos; does not exist on type &apos;T&apos;. (2339)</span>
+    <span class="hljs-keyword">return</span> arg;
+}
+</code></pre>
+<p>&#x8FD9;&#x6837;&#x505A;&#x7684;&#x8BDD;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x5C06;&#x7ED9;&#x51FA;&#x4E00;&#x4E2A;&#x5728;&#x6210;&#x5458;<code>arg</code>&#x4E0A;&#x4F7F;&#x7528;<code>.length</code>&#x7684;&#x9519;&#x8BEF;&#xFF0C;&#x7136;&#x800C;&#x6CA1;&#x6709;&#x90A3;&#x91CC;&#x8BF4;&#x8FC7;<code>arg</code>&#x4E0A;&#x6709;&#x7740;&#x6B64;&#x6210;&#x5458;&#x3002;&#x8BF7;&#x8BB0;&#x4F4F;&#xFF0C;&#x524D;&#x9762;&#x5DF2;&#x7ECF;&#x63D0;&#x53CA;&#x5230;&#xFF0C;&#x8FD9;&#x4E9B;&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#x4EE3;&#x66FF;&#x7684;&#x662F;<code>any</code>&#x53CA;&#x6240;&#x6709;&#x7C7B;&#x578B;&#xFF0C;&#x56E0;&#x6B64;&#x4F7F;&#x7528;&#x6B64;&#x51FD;&#x6570;&#x7684;&#x67D0;&#x4E2A;&#x4EBA;&#x53EF;&#x80FD;&#x4F20;&#x5165;&#x7684;&#x662F;&#x4E00;&#x4E2A;<code>number</code>&#xFF0C;&#x800C;&#x4E00;&#x4E2A;<code>number</code>&#x663E;&#x7136;&#x662F;&#x6CA1;&#x6709;<code>.length</code>&#x6210;&#x5458;&#x7684;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x8981;&#x8BE5;&#x51FD;&#x6570;&#x5728;<code>T</code>&#x7684;&#x6570;&#x7EC4;&#x4E0A;&#x64CD;&#x4F5C;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5728;<code>T</code>&#x4E0A;&#x3002;&#x800C;&#x4E00;&#x65E6;&#x5BF9;&#x6570;&#x7EC4;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x90A3;&#x4E48;<code>.length</code>&#x6210;&#x5458;&#x5C31;&#x53EF;&#x7528;&#x4E86;&#x3002;&#x53EF;&#x50CF;&#x4E0B;&#x9762;&#x5C06;&#x521B;&#x5EFA;&#x5176;&#x5B83;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x7EC4;&#x90A3;&#x6837;&#xFF0C;&#x5BF9;&#x6B64;&#x8FDB;&#x884C;&#x63CF;&#x8FF0;&#xFF1A;</p>
+<pre><code class="lang-typescript">function loggingIdentity&lt;T&gt;(arg: T[]): T[] {
+    console.log(arg.length); // &#x56E0;&#x4E3A;&#x6570;&#x7EC4;&#x6709;&#x7740;&#x957F;&#x5EA6;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x518D;&#x53D1;&#x751F;&#x9519;&#x8BEF;
+    return arg;
+}
+</code></pre>
+<p>&#x53EF;&#x5C06;<code>loggingIdentity</code>&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x8BFB;&#x4F5C;&#x201C;&#x901A;&#x7528;&#x51FD;&#x6570;<code>loggingIdentity</code>&#xFF0C;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#x53C2;&#x6570;<code>T</code>&#xFF0C;&#x4EE5;&#x53CA;&#x4E00;&#x4E2A;&#x4E3A;<code>T</code>&#x7684;&#x6570;&#x7EC4;&#x7684;&#x53C2;&#x6570;<code>arg</code>&#xFF0C;&#x800C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;<code>T</code>&#x7684;&#x6570;&#x7EC4;&#x201D;&#xFF08;&quot;the generic function <code>loggingIdentity</code> takes a type parameter <code>T</code>, and an argument <code>arg</code> which is an array of <code>T</code>s, and returns an array of <code>T</code>s&quot;&#xFF09;&#x3002;&#x5728;&#x5C06;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#x6570;&#x7EC4;&#x4F20;&#x9012;&#x8FDB;&#x53BB;&#x65F6;&#xFF0C;&#x5C06;&#x83B7;&#x53D6;&#x5230;&#x4E00;&#x4E2A;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x5B57;&#x6570;&#x7EC4;&#xFF0C;&#x540C;&#x65F6;<code>T</code>&#x5C06;&#x7ED1;&#x5B9A;&#x5230;<code>number</code>&#x7C7B;&#x578B;&#x3002;&#x8FD9;&#x5C31;&#x5141;&#x8BB8;&#x5C06;&#x8FD9;&#x91CC;&#x7684;&#x6CDB;&#x578B;&#x53D8;&#x91CF;<code>T</code>&#x4F5C;&#x4E3A;&#x6240;&#x5904;&#x7406;&#x7684;&#x7C7B;&#x578B;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x800C;&#x975E;&#x6574;&#x4E2A;&#x7C7B;&#x578B;&#xFF0C;&#x4ECE;&#x800C;&#x5E26;&#x6765;&#x66F4;&#x5927;&#x7684;&#x7075;&#x6D3B;&#x6027;&#xFF08;This allows us to use our generic type variable <code>T</code> as part of the types we&apos;re working with, rather than the whole type, giving us greater flexibility&#xFF0C;&#x8FD9;&#x91CC;&#x6D89;&#x53CA;&#x4E24;&#x4E2A;&#x7C7B;&#x578B;&#xFF0C;&#x6CDB;&#x578B;<code>T</code>&#x53CA;&#x6CDB;&#x578B;<code>T</code>&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x56E0;&#x6B64;&#x8BF4;<code>T</code>&#x662F;&#x5904;&#x7406;&#x7C7B;&#x578B;&#x7684;&#x90E8;&#x5206;&#xFF09;&#x3002;</p>
+<p>&#x8FD8;&#x53EF;&#x4EE5;&#x5C06;&#x540C;&#x4E00;&#x793A;&#x4F8B;&#xFF0C;&#x5199;&#x6210;&#x4E0B;&#x9762;&#x8FD9;&#x79CD;&#x5F62;&#x5F0F;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loggingIdentity</span>&lt;<span class="hljs-title">T</span>&gt;(<span class="hljs-params">arg: <span class="hljs-built_in">Array</span>&lt;T&gt;</span>): <span class="hljs-title">Array</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+    <span class="hljs-built_in">console</span>.log(arg.length);
+    <span class="hljs-keyword">return</span> arg;
+}
+</code></pre>
+<p>&#x5176;&#x5B83;&#x8BED;&#x8A00;&#x4E2D;&#x4E5F;&#x6709;&#x6B64;&#x79CD;&#x5199;&#x6CD5;&#x3002;&#x4E0B;&#x4E00;&#x5C0F;&#x8282;&#xFF0C;&#x5C06;&#x63A2;&#x8BA8;&#x5982;&#x4F55;&#x521B;&#x5EFA;&#x81EA;&#x5DF1;&#x7684;&#x8BF8;&#x5982;<code>Array&lt;T&gt;</code>&#x8FD9;&#x6837;&#x7684;&#x6CDB;&#x578B;&#x3002;</p>
+<h2 id="&#x6CDB;&#x578B;&#xFF08;generic-types&#xFF09;">&#x6CDB;&#x578B;&#xFF08;Generic Types&#xFF09;</h2>
+<p>&#x4E0A;&#x4E00;&#x5C0F;&#x8282;&#x4E2D;&#xFF0C;&#x521B;&#x5EFA;&#x51FA;&#x4E86;&#x901A;&#x7528;&#x7684;&#x3001;&#x53EF;&#x5904;&#x7406;&#x4E00;&#x7CFB;&#x5217;&#x7C7B;&#x578B;&#x7684;identity&#x51FD;&#x6570;&#x3002;&#x672C;&#x5C0F;&#x8282;&#x4E2D;&#xFF0C;&#x5C06;&#x5C31;&#x8BE5;&#x51FD;&#x6570;&#x672C;&#x8EAB;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x4EE5;&#x53CA;&#x5982;&#x4F55;&#x521B;&#x5EFA;&#x901A;&#x7528;&#x63A5;&#x53E3;&#xFF0C;&#x8FDB;&#x884C;&#x63A2;&#x7D22;&#x3002;</p>
+<p>&#x901A;&#x7528;&#x51FD;&#x6570;&#x7684;&#x7C7B;&#x578B;&#xFF08;the type of generic functions&#xFF09;&#x4E0E;&#x975E;&#x901A;&#x7528;&#x51FD;&#x6570;&#x4E00;&#x6837;&#xFF0C;&#x4EE5;&#x6240;&#x5217;&#x51FA;&#x7684;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x5F00;&#x59CB;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E0E;&#x51FD;&#x6570;&#x7684;&#x58F0;&#x660E;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">identity</span>&lt;<span class="hljs-title">T</span>&gt;(<span class="hljs-params">arg: T</span>): <span class="hljs-title">T</span> </span>{
+    <span class="hljs-keyword">return</span> arg;
+}
+
+<span class="hljs-keyword">let</span> myIdentity: &lt;T&gt;(arg: T) =&gt; T = identity;
+</code></pre>
+<p>&#x5BF9;&#x4E8E;&#x7C7B;&#x578B;&#x4E2D;&#x7684;&#x6CDB;&#x578B;&#x53C2;&#x6570;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x540D;&#x79F0;&#xFF0C;&#x53EA;&#x8981;&#x4E0E;&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#x7684;&#x6570;&#x76EE;&#x53CA;&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#x4F7F;&#x7528;&#x987A;&#x5E8F;&#x4E00;&#x81F4;&#x5373;&#x53EF;&#xFF08;We could also have used a different name for the generic type parameter in the type, so long as the number of type variables and how the type variables are used line up&#xFF09;&#x3002;</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">identity</span>&lt;<span class="hljs-title">T</span>&gt;(<span class="hljs-params">arg: T</span>): <span class="hljs-title">T</span> </span>{
+    <span class="hljs-keyword">return</span> arg;
+}
+
+<span class="hljs-keyword">let</span> myIdentity: &lt;U&gt;(arg: U) =&gt; U = identity;
+</code></pre>
+<p>&#x8FD8;&#x53EF;&#x4EE5;&#x5C06;&#x8BE5;&#x6CDB;&#x578B;&#x5199;&#x4E3A;&#x67D0;&#x5BF9;&#x8C61;&#x5B57;&#x9762;&#x7C7B;&#x578B;&#x7684;&#x8C03;&#x7528;&#x7B7E;&#x540D;&#xFF08;a call signature of an object literal type&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">identity</span>&lt;<span class="hljs-title">T</span>&gt;(<span class="hljs-params">arg: T</span>): <span class="hljs-title">T</span> </span>{
+    <span class="hljs-keyword">return</span> arg;
+}
+
+<span class="hljs-keyword">let</span> myIdentity: {&lt;T&gt;(arg: T): T} = identity;
+</code></pre>
+<p>&#x8FD9;&#x5C31;&#x5F15;&#x5165;&#x7F16;&#x5199;&#x9996;&#x4E2A;&#x901A;&#x7528;&#x63A5;&#x53E3;&#xFF08;the generic interface&#xFF09;&#x7684;&#x95EE;&#x9898;&#x4E86;&#x3002;&#x8FD9;&#x91CC;&#x628A;&#x4E0A;&#x4E00;&#x793A;&#x4F8B;&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x5B57;&#x9762;&#x503C;&#xFF0C;&#x6539;&#x5199;&#x4E3A;&#x63A5;&#x53E3;&#x7684;&#x5F62;&#x5F0F;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">interface</span> GenericIdentityFn {
+    &lt;T&gt;(arg: T): T;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">identity</span>&lt;<span class="hljs-title">T</span>&gt;(<span class="hljs-params">arg: T</span>) <span class="hljs-title">T</span> </span>{
+    <span class="hljs-keyword">return</span> arg;
+}
+
+<span class="hljs-keyword">let</span> myIdentity: GenericIdentityFn = identity;
+</code></pre>
+<p>&#x5728;&#x7C7B;&#x4F3C;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x53EF;&#x80FD;&#x60F3;&#x8981;&#x5C06;&#x901A;&#x7528;&#x53C2;&#x6570;&#xFF0C;&#x4FEE;&#x6539;&#x4E3A;&#x6574;&#x4E2A;&#x63A5;&#x53E3;&#x7684;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x3002;&#x8FD9;&#x6837;&#x505A;&#x53EF;&#x83B7;&#x6089;&#x662F;&#x5BF9;&#x90A3;&#x4E9B;&#x7C7B;&#x578B;&#x8FDB;&#x884C;&#x6CDB;&#x578B;&#x5904;&#x7406;&#xFF08;&#x6BD4;&#x5982;&#xFF0C;&#x662F;<code>Dictionary&lt;string&gt;</code>&#x800C;&#x4E0D;&#x53EA;&#x662F;<code>Dictionary</code>&#xFF09;&#x3002;&#x8FD9;&#x6837;&#x5904;&#x7406;&#x53EF;&#x5C06;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x66B4;&#x9732;&#x7ED9;&#x8BE5;&#x63A5;&#x53E3;&#x7684;&#x5176;&#x5B83;&#x6210;&#x5458;&#xFF08;In a similar example, we may want to move the generic parameter to be a parameter of the whole interface. This lets us see what type(s) we&apos;re generic over(e.g. <code>Dictionary&lt;string&gt;</code> rather than just <code>Dictionary</code>). This makes the type parameter visible to all the other members of the interface&#xFF09;&#x3002;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">interface</span> GenericIdentityFn&lt;T&gt; {
+    (arg: T): T;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">identity</span>&lt;<span class="hljs-title">T</span>&gt;(<span class="hljs-params">arg: T</span>) <span class="hljs-title">T</span> </span>{
+    <span class="hljs-keyword">return</span> arg;
+}
+
+<span class="hljs-keyword">let</span> myIdentity: GenericIdentityFn&lt;<span class="hljs-built_in">number</span>&gt; = identity;
+</code></pre>
+<p>&#x8BF7;&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x7684;&#x793A;&#x4F8B;&#x5DF2;&#x88AB;&#x4FEE;&#x6539;&#x4E3A;&#x6709;&#x4E00;&#x70B9;&#x70B9;&#x7684;&#x4E0D;&#x540C;&#x4E86;&#x3002;&#x8FD9;&#x91CC;&#x6709;&#x4E86;&#x4E00;&#x4E2A;&#x4F5C;&#x4E3A;&#x6CDB;&#x578B;&#x4E00;&#x90E8;&#x5206;&#x7684;&#x975E;&#x901A;&#x7528;&#x51FD;&#x6570;&#xFF0C;&#x53D6;&#x4EE3;&#x4E86;&#x5BF9;&#x4E00;&#x4E2A;&#x901A;&#x7528;&#x51FD;&#x6570;&#x7684;&#x63CF;&#x8FF0;&#x3002;&#x73B0;&#x5728;&#x4F7F;&#x7528;<code>GenericIdentityFn</code>&#x65F6;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x660E;&#x786E;&#x6307;&#x660E;&#x4E00;&#x4E2A;&#x5BF9;&#x5E94;&#x7684;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x4E86;&#xFF08;&#x8FD9;&#x91CC;&#x662F;<code>number</code>&#xFF09;&#xFF0C;&#x4ECE;&#x800C;&#x6709;&#x6548;&#x9501;&#x5B9A;&#x5F53;&#x524D;&#x8C03;&#x7528;&#x7B7E;&#x540D;&#x6240;&#x5177;&#x4F53;&#x4F7F;&#x7528;&#x7684;&#x7C7B;&#x578B;&#x3002;&#x638C;&#x63E1;&#x4F55;&#x65F6;&#x5C06;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x76F4;&#x63A5;&#x653E;&#x5728;&#x8C03;&#x7528;&#x7B7E;&#x540D;&#x4E0A;&#xFF0C;&#x4EE5;&#x53CA;&#x4F55;&#x65F6;&#x5C06;&#x5176;&#x653E;&#x5728;&#x63A5;&#x53E3;&#x672C;&#x8EAB;&#x4E0A;&#xFF0C;&#x5BF9;&#x4E8E;&#x9610;&#x660E;&#x6CDB;&#x578B;&#x7684;&#x5404;&#x4E2A;&#x65B9;&#x9762;&#x662F;&#x6709;&#x5E2E;&#x52A9;&#x7684;&#xFF08;Instead of describing a generic function, we now have a non-generic function signature that is a part of a generic type. When we use <code>GenericIdentityFn</code>, we now will also need to specify the corresponding type argument(here: <code>number</code>), effectively locking in what the underlying call signature will use. Understanding when to put the type parameter directly on the call signature and when to put it on the interface itself will be helpful in describing what aspects of a type are generic&#xFF09;&#x3002;</p>
+<p>&#x9664;&#x5F00;&#x901A;&#x7528;&#x63A5;&#x53E3;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x901A;&#x7528;&#x7C7B;&#x3002;&#x4F46;&#x8BF7;&#x6CE8;&#x610F;&#x662F;&#x4E0D;&#x80FD;&#x521B;&#x5EFA;&#x901A;&#x7528;&#x679A;&#x4E3E;&#x4E0E;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x7684;&#x3002;</p>
+<h2 id="&#x901A;&#x7528;&#x7C7B;&#xFF08;generic-classes&#xFF09;">&#x901A;&#x7528;&#x7C7B;&#xFF08;Generic Classes&#xFF09;</h2>
+<p>&#x901A;&#x7528;&#x7C7B;&#x4E0E;&#x901A;&#x7528;&#x63A5;&#x53E3;&#x6709;&#x7740;&#x7C7B;&#x4F3C;&#x5916;&#x89C2;&#x3002;&#x901A;&#x7528;&#x7C7B;&#x5728;&#x7C7B;&#x540D;&#x79F0;&#x4E4B;&#x540E;&#xFF0C;&#x6709;&#x7740;&#x4E00;&#x4E2A;&#x4E8E;&#x5C16;&#x62EC;&#x53F7;&#xFF08;<code>&lt;&gt;</code>&#xFF09;&#x4E2D;&#x6240;&#x5217;&#x51FA;&#x7684;&#x6CDB;&#x578B;&#x53C2;&#x6570;&#x6E05;&#x5355;&#xFF08;A generic class has a similar shape to a generic interface. Generic classes have a generic type parameter list in angle brackets(<code>&lt;&gt;</code>) following the name of the class&#xFF09;&#x3002;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">class</span> GenericNumber&lt;T&gt; {
+    zeroValue: T;
+    add: (x: T, y: T) =&gt; T;
+}
+
+<span class="hljs-keyword">let</span> myGenericNumber = <span class="hljs-keyword">new</span> GenericNumber&lt;<span class="hljs-built_in">number</span>&gt;();
+myGenericNumber.zeroValue = <span class="hljs-number">0</span>;
+myGenericNumber.add = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x, y</span>) </span>{<span class="hljs-keyword">return</span> x+y;};
+</code></pre>
+<p>&#x8FD9;&#x662F;&#x5BF9;<code>GenericNumber</code>&#x7C7B;&#x7684;&#x76F8;&#x5F53;&#x76F4;&#x89C2;&#x7684;&#x7528;&#x6CD5;&#x4E86;&#xFF0C;&#x4E0D;&#x8FC7;&#x53EF;&#x80FD;&#x4F1A;&#x6CE8;&#x610F;&#x5230;&#x8FD9;&#x91CC;&#x5E76;&#x6CA1;&#x6709;&#x9650;&#x5236;&#x8BE5;&#x7C7B;&#x4EC5;&#x4F7F;&#x7528;<code>number</code>&#x7C7B;&#x578B;&#x3002;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>string</code>&#x751A;&#x81F3;&#x66F4;&#x590D;&#x6742;&#x7684;JavaScript&#x5BF9;&#x8C61;&#x3002;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> stringNumeric = <span class="hljs-keyword">new</span> GenericNumber&lt;<span class="hljs-built_in">string</span>&gt;();
+
+stringNumeric.zeroValue = <span class="hljs-string">&quot;&quot;</span>;
+stringNumeric.add = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x, y</span>) </span>{ <span class="hljs-keyword">return</span> x + y; };
+
+alert(stringNumeric.add(stringNumeric.zeroValue, <span class="hljs-string">&quot;test&quot;</span>));
+</code></pre>
+<p>&#x4E0E;&#x63A5;&#x53E3;&#x4E00;&#x6837;&#xFF0C;&#x5C06;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x653E;&#x5728;&#x7C7B;&#x672C;&#x8EAB;&#x4E0A;&#xFF0C;&#x53EF;&#x786E;&#x4FDD;&#x8BE5;&#x7C7B;&#x7684;&#x6240;&#x6709;&#x5C5E;&#x6027;&#xFF0C;&#x90FD;&#x4E0E;&#x540C;&#x4E00;&#x7C7B;&#x578B;&#x8FDB;&#x884C;&#x8FD0;&#x4F5C;&#x3002;</p>
+<p>&#x5982;&#x540C;&#x5728;<a href="03_classes.html">&#x7C7B;&#x90E8;&#x5206;</a>&#x6240;&#x8BB2;&#x5230;&#x7684;&#xFF0C;&#x7C7B;&#x5728;&#x5176;&#x7C7B;&#x578B;&#x4E0A;&#x6709;&#x4E24;&#x4FA7;&#xFF1A;&#x9759;&#x6001;&#x4FA7;&#x4E0E;&#x793A;&#x4F8B;&#x4FA7;&#x3002;&#x901A;&#x7528;&#x7C7B;&#x5219;&#x4EC5;&#x5728;&#x793A;&#x4F8B;&#x4FA7;&#x662F;&#x901A;&#x7528;&#x7684;&#xFF0C;&#x9759;&#x6001;&#x4FA7;&#x4E0D;&#x5177;&#x6709;&#x901A;&#x7528;&#x6027;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x4F7F;&#x7528;&#x7C7B;&#x65F6;&#xFF0C;&#x9759;&#x6001;&#x6210;&#x5458;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#x5230;&#x7C7B;&#x7684;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x3002;</p>
+<h2 id="&#x6CDB;&#x578B;&#x7EA6;&#x675F;&#xFF08;generic-constraints&#xFF09;">&#x6CDB;&#x578B;&#x7EA6;&#x675F;&#xFF08;Generic Constraints&#xFF09;</h2>
+<p>&#x5982;&#x8FD8;&#x8BB0;&#x5F97;&#x65E9;&#x5148;&#x7684;&#x4E00;&#x4E2A;&#x793A;&#x4F8B;&#xFF0C;&#x6709;&#x65F6;&#x5019;&#x5728;&#x4E86;&#x89E3;&#x5230;&#x67D0;&#x4E9B;&#x7C7B;&#x578B;&#x96C6;&#x6240;&#x5177;&#x5907;&#x7684;&#x529F;&#x80FD;&#x65F6;&#xFF0C;&#x800C;&#x60F3;&#x8981;&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x5904;&#x7406;&#x7C7B;&#x578B;&#x96C6;&#x7684;&#x901A;&#x7528;&#x51FD;&#x6570;&#x3002;&#x5728;&#x793A;&#x4F8B;<code>loggingIdentity</code>&#x4E2D;&#xFF0C;&#x662F;&#x6253;&#x7B97;&#x80FD;&#x591F;&#x8BBF;&#x95EE;&#x5230;<code>arg</code>&#x7684;<code>length</code>&#x5C5E;&#x6027;&#xFF0C;&#x4F46;&#x7F16;&#x8BD1;&#x5668;&#x5374;&#x65E0;&#x6CD5;&#x8BC1;&#x5B9E;&#x6BCF;&#x4E2A;&#x7C7B;&#x578B;&#x90FD;&#x6709;<code>length</code>&#x5C5E;&#x6027;&#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x5C31;&#x8B66;&#x544A;&#x65E0;&#x6CD5;&#x505A;&#x51FA;&#x6B64;&#x79CD;&#x5047;&#x5B9A;&#x3002;</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">identity</span>&lt;<span class="hljs-title">T</span>&gt;(<span class="hljs-params">arg: T</span>): <span class="hljs-title">T</span> </span>{
+    <span class="hljs-built_in">console</span>.log(arg.length); <span class="hljs-comment">// Property &apos;length&apos; does not exist on type &apos;T&apos;. (2339)</span>
+    <span class="hljs-keyword">return</span> arg;
+}
+</code></pre>
+<p>&#x4E3A;&#x4E86;&#x907F;&#x514D;&#x5904;&#x7406;&#x4EFB;&#x610F;&#x4E0E;&#x6240;&#x6709;&#x7C7B;&#x578B;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x8981;&#x5C06;&#x8BE5;&#x51FD;&#x6570;&#x7EA6;&#x675F;&#x4E3A;&#x5904;&#x7406;&#x6709;&#x7740;<code>length</code>&#x5C5E;&#x6027;&#x7684;&#x4EFB;&#x610F;&#x53CA;&#x6240;&#x6709;&#x7C7B;&#x578B;&#x3002;&#x53EA;&#x8981;&#x7C7B;&#x578B;&#x5177;&#x6709;&#x8BE5;&#x6210;&#x5458;&#xFF0C;&#x8FD9;&#x91CC;&#x5141;&#x8BB8;&#x8BE5;&#x7C7B;&#x578B;&#xFF0C;&#x4F46;&#x4ECD;&#x8981;&#x6C42;&#x8BE5;&#x7C7B;&#x578B;&#x81F3;&#x5C11;&#x5177;&#x5907;&#x8BE5;&#x5C5E;&#x6027;&#x3002;&#x4E3A;&#x4E86;&#x8FBE;&#x5230;&#x8FD9;&#x4E2A;&#x76EE;&#x7684;&#xFF0C;&#x5C31;&#x5FC5;&#x987B;&#x5C06;&#x8FD9;&#x91CC;&#x7684;&#x8981;&#x6C42;&#xFF0C;&#x4F5C;&#x4E3A;<code>T</code>&#x53EF;&#x4EE5;&#x662F;&#x4F55;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x4E00;&#x4E2A;&#x7EA6;&#x675F;&#x52A0;&#x4EE5;&#x5217;&#x51FA;&#x3002;</p>
+<p>&#x505A;&#x6CD5;&#x5C31;&#x662F;&#xFF0C;&#x521B;&#x5EFA;&#x51FA;&#x4E00;&#x4E2A;&#x63CF;&#x8FF0;&#x7EA6;&#x675F;&#x7684;&#x63A5;&#x53E3;&#x3002;&#x4E0B;&#x9762;&#x5C06;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5177;&#x6709;&#x5355;&#x4E00;<code>.length</code>&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;&#x8BE5;&#x63A5;&#x53E3;&#x53CA;<code>extends</code>&#x8BED;&#x53E5;&#xFF0C;&#x6765;&#x8868;&#x793A;&#x8FD9;&#x91CC;&#x7684;&#x7EA6;&#x675F;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">interface</span> Lengthwise {
+    length: <span class="hljs-built_in">number</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loggingIdentity</span>&lt;<span class="hljs-title">T</span> <span class="hljs-title">extends</span> <span class="hljs-title">Lengthwise</span>&gt;(<span class="hljs-params">arg: T</span>): <span class="hljs-title">T</span> </span>{
+    <span class="hljs-built_in">console</span>.log(arg.length); <span class="hljs-comment">// &#x73B0;&#x5728;&#x77E5;&#x9053;`arg`&#x6709;&#x7740;&#x4E00;&#x4E2A;`.length`&#x5C5E;&#x6027;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x518D;&#x62A5;&#x51FA;&#x9519;&#x8BEF;</span>
+    <span class="hljs-keyword">return</span> arg;
+}
+</code></pre>
+<p>&#x56E0;&#x4E3A;&#x8BE5;&#x901A;&#x7528;&#x51FD;&#x6570;&#x73B0;&#x5728;&#x5DF2;&#x88AB;&#x7EA6;&#x675F;&#xFF0C;&#x6545;&#x5176;&#x4E0D;&#x518D;&#x5BF9;&#x4EFB;&#x610F;&#x53CA;&#x6240;&#x6709;&#x7C7B;&#x578B;&#x8FD0;&#x4F5C;&#xFF1A;</p>
+<pre><code class="lang-typescript">loggingIdentity(<span class="hljs-number">3</span>); <span class="hljs-comment">// &#x9519;&#x8BEF;&#xFF0C;&#x6570;&#x5B57;&#x6CA1;&#x6709;`.length`&#x5C5E;&#x6027;</span>
+</code></pre>
+<p>&#x76F8;&#x53CD;&#xFF0C;&#x8FD9;&#x91CC;&#x9700;&#x4F20;&#x5165;&#x90A3;&#x4E9B;&#x5177;&#x6709;&#x5168;&#x90E8;&#x6240;&#x9700;&#x5C5E;&#x6027;&#x7C7B;&#x578B;&#x7684;&#x503C;&#xFF1A;</p>
+<pre><code class="lang-typescript">loggingIdentity({length: <span class="hljs-number">10</span>; value: <span class="hljs-number">3</span>});
+</code></pre>
+<h3 id="&#x5728;&#x6CDB;&#x578B;&#x7EA6;&#x675F;&#x4E2D;&#x4F7F;&#x7528;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#xFF08;using-type-parameter-in-generic-constraints&#xFF09;">&#x5728;&#x6CDB;&#x578B;&#x7EA6;&#x675F;&#x4E2D;&#x4F7F;&#x7528;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#xFF08;Using Type Parameter in Generic Constraints&#xFF09;</h3>
+<p>&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x53D7;&#x5176;&#x5B83;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x7EA6;&#x675F;&#x7684;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#xFF0C;&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x7684;&#x3002;&#x6BD4;&#x5982;&#x8FD9;&#x91CC;&#x8981;&#x4ECE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x7ECF;&#x7531;&#x5C5E;&#x6027;&#x540D;&#x79F0;&#x800C;&#x83B7;&#x53D6;&#x5230;&#x67D0;&#x4E2A;&#x5C5E;&#x6027;&#x3002;&#x80AF;&#x5B9A;&#x662F;&#x8981;&#x786E;&#x4FDD;&#x4E0D;&#x4F1A;&#x5076;&#x7136;&#x53BB;&#x83B7;&#x53D6;&#x67D0;&#x4E2A;&#x5E76;&#x4E0D;&#x5B58;&#x5728;&#x4E8E;&#x8BE5;<code>obj</code>&#x4E0A;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x56E0;&#x6B64;&#x5C31;&#x5C06;&#x5728;&#x4E24;&#x4E2A;&#x7C7B;&#x578B;&#x4E0A;&#xFF0C;&#x52A0;&#x4E0A;&#x4E00;&#x6761;&#x7EA6;&#x675F;&#xFF08;You can declare a type parameter that is constrained by another type parameter. For example, here we&apos;d like to get a property from an object given its name. We&apos;d like to ensure that we&apos;re not accidentally grabbing a property that does not exist on the <code>obj</code>, so we&apos;ll place a constraint between the two types&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getProperty</span>&lt;<span class="hljs-title">T</span>, <span class="hljs-title">K</span> <span class="hljs-title">extends</span> <span class="hljs-title">keyof</span> <span class="hljs-title">T</span>&gt;(<span class="hljs-params">obj: T, key: K</span>) </span>{
+    <span class="hljs-keyword">return</span> obj[key];
+}
+
+<span class="hljs-keyword">let</span> x = { a: <span class="hljs-number">1</span>, b: <span class="hljs-number">2</span>, c: <span class="hljs-number">3</span>, d: <span class="hljs-number">4</span> };
+
+getProperty(x, <span class="hljs-string">&quot;m&quot;</span>); <span class="hljs-comment">// Argument of type &apos;&quot;m&quot;&apos; is not assignable to parameter of type &apos;&quot;a&quot; | &quot;b&quot; | &quot;c&quot; | &quot;d&quot;&apos;. (2345)</span>
+</code></pre>
+<h3 id="&#x5728;&#x6CDB;&#x578B;&#x4E2D;&#x4F7F;&#x7528;&#x7C7B;&#x7C7B;&#x578B;&#xFF08;using-class-types-in-generics&#xFF09;">&#x5728;&#x6CDB;&#x578B;&#x4E2D;&#x4F7F;&#x7528;&#x7C7B;&#x7C7B;&#x578B;&#xFF08;Using Class Types in Generics&#xFF09;</h3>
+<p>&#x5728;&#x8FD0;&#x7528;&#x6CDB;&#x578B;&#x6765;&#x521B;&#x5EFA;TypeScript&#x7684;&#x5DE5;&#x5382;&#xFF08;&#x5DE5;&#x5382;&#x662F;&#x4E00;&#x79CD;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;&#x7684;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#xFF0C;&#x53C2;&#x89C1;<a href="https://thedulinreport.com/2017/07/30/design-patters-in-typescript-factory/" target="_blank">Design patterns in TypeScript: Factory</a>, <a href="http://www.oodesign.com/factory-pattern.html" target="_blank">oodesign.com: Factory Pattern</a>&#xFF09;&#x65F6;&#xFF0C;&#x6709;&#x5FC5;&#x8981;&#x901A;&#x8FC7;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5BF9;&#x7C7B;&#x7684;&#x7C7B;&#x578B;&#x52A0;&#x4EE5;&#x5F15;&#x7528;&#xFF08;When creating factories in TypeScript using generics, it is necessary to refer to class types by their constructor functions&#xFF09;&#x3002;&#x6BD4;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-typescript">function create&lt;T&gt;(c: { new(): T; }): T {
+    return new c();
+}
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x66F4;&#x4E3A;&#x590D;&#x6742;&#x7684;&#x793A;&#x4F8B;&#xFF0C;&#x5176;&#x4F7F;&#x7528;&#x4E86;&#x539F;&#x578B;&#x5C5E;&#x6027;&#xFF0C;&#x6765;&#x63A8;&#x65AD;&#x53CA;&#x7EA6;&#x675F;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E0E;&#x7C7B;&#x7684;&#x7C7B;&#x578B;&#x5B9E;&#x4F8B;&#x4FA7;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#xFF08;A more advanced example uses the prototype property to infer and constrain relationships between the constructor function and the instance side of class types&#xFF09;&#x3002;</p>
+<pre><code class="lang-typescript">class BeeKeeper {
+    hasMask: boolean;
+}
+
+class ZooKeeper {
+    nametag: string;
+}
+
+class Animal {
+    numLegs: number;
+}
+
+class Bee extends Animal {
+    keeper: BeeKeeper;
+}
+
+class Lion extends Animal {
+    keeper: ZooKeeper;
+}
+
+function createInstance&lt;A extends Animal&gt;(c: new () =&gt; A): A {
+    return new c();
+}
+
+createInstance(Lion).keeper.nametag; // &#x7C7B;&#x578B;&#x68C0;&#x67E5;&#xFF0C; Cannot read property &apos;nametag&apos; of undefined
+createInstance(Bee).keeper.hasMask;
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="05_functions.html" class="navigation navigation-prev " aria-label="Previous page: 函数">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="07_enums.html" class="navigation navigation-next " aria-label="Next page: 枚举">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"泛型","level":"1.7","depth":1,"next":{"title":"枚举","level":"1.8","depth":1,"path":"07_enums.md","ref":"07_enums.md","articles":[]},"previous":{"title":"函数","level":"1.6","depth":1,"path":"05_functions.md","ref":"05_functions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"sharing":{"weibo":false,"all":["facebook","google","twitter","weibo","instapaper"],"google":false,"twitter":true,"vk":false,"instapaper":false,"facebook":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"}},"file":{"path":"06_generics.md","mtime":"2019-04-03T06:43:16.308Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-04T00:04:23.982Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

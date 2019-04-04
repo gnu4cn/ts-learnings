@@ -1,0 +1,372 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>类型推导 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="07_enums.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01_basic_data_types.html">
+            
+                <a href="01_basic_data_types.html">
+            
+                    
+                    基本数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02_variables_declaration.html">
+            
+                <a href="02_variables_declaration.html">
+            
+                    
+                    变量声明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="03_classes.html">
+            
+                <a href="03_classes.html">
+            
+                    
+                    类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="04_interfaces.html">
+            
+                <a href="04_interfaces.html">
+            
+                    
+                    接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="05_functions.html">
+            
+                <a href="05_functions.html">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="06_generics.html">
+            
+                <a href="06_generics.html">
+            
+                    
+                    泛型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="07_enums.html">
+            
+                <a href="07_enums.html">
+            
+                    
+                    枚举
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.9" data-path="08_type_inference.html">
+            
+                <a href="08_type_inference.html">
+            
+                    
+                    类型推导
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >类型推导</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x7C7B;&#x578B;&#x63A8;&#x5BFC;">&#x7C7B;&#x578B;&#x63A8;&#x5BFC;</h1>
+<p><strong>Type Inference</strong></p>
+<h2 id="&#x7B80;&#x4ECB;">&#x7B80;&#x4ECB;</h2>
+<p>&#x672C;&#x7AE0;&#x8282;&#x5C06;&#x6DB5;&#x76D6;TypeScript&#x4E2D;&#x7684;&#x7C7B;&#x578B;&#x63A8;&#x5BFC;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x8FD9;&#x91CC;&#x5C06;&#x8BA8;&#x8BBA;&#x7C7B;&#x578B;&#x5728;&#x4F55;&#x5904;&#x53CA;&#x5982;&#x4F55;&#x88AB;&#x63A8;&#x5BFC;&#x3002;</p>
+<h2 id="&#x7C7B;&#x578B;&#x63A8;&#x5BFC;&#x57FA;&#x7840;">&#x7C7B;&#x578B;&#x63A8;&#x5BFC;&#x57FA;&#x7840;</h2>
+<p>&#x5728;TypeScript&#x4E2D;&#xFF0C;&#x6709;&#x597D;&#x51E0;&#x4E2A;&#x5730;&#x65B9;&#x90FD;&#x4F7F;&#x7528;&#x5230;&#x7C7B;&#x578B;&#x63A8;&#x5BFC;&#xFF0C;&#x6765;&#x5904;&#x7406;&#x90A3;&#x4E9B;&#x6CA1;&#x6709;&#x663E;&#x5F0F;&#x7C7B;&#x578B;&#x6CE8;&#x89E3;&#xFF08;explicit type annotation&#xFF09;&#x65F6;&#xFF0C;&#x7528;&#x4E8E;&#x63D0;&#x4F9B;&#x7C7B;&#x578B;&#x7684;&#x4FE1;&#x606F;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x5728;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> x = <span class="hljs-number">3</span>;
+</code></pre>
+<p>&#x53D8;&#x91CF;<code>i</code>&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x5C31;&#x88AB;&#x63A8;&#x5BFC;&#x4E3A;<code>number</code>&#x3002;&#x8FD9;&#x79CD;&#x63A8;&#x5BFC;&#xFF0C;&#x662F;&#x5728;&#x5BF9;&#x53D8;&#x91CF;&#x53CA;&#x6210;&#x5458;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x3001;&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x503C;&#x7684;&#x8BBE;&#x7F6E;&#xFF08;setting parameter default values&#xFF09;&#xFF0C;&#x4EE5;&#x53CA;&#x786E;&#x5B9A;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x503C;&#x7C7B;&#x578B;&#x7B49;&#x671F;&#x95F4;&#x53D1;&#x751F;&#x7684;&#x3002;</p>
+<p>&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7C7B;&#x578B;&#x63A8;&#x5BFC;&#x90FD;&#x662F;&#x76F4;&#x622A;&#x4E86;&#x5F53;&#x7684;&#x3002;&#x5728;&#x4E0B;&#x9762;&#x90E8;&#x5206;&#x4E2D;&#xFF0C;&#x5C06;&#x5BF9;&#x7C7B;&#x578B;&#x662F;&#x5982;&#x4F55;&#x8FDB;&#x884C;&#x63A8;&#x5BFC;&#x7684;&#x7EC6;&#x5FAE;&#x4E4B;&#x5904;&#xFF0C;&#x8FDB;&#x884C;&#x63A2;&#x8BA8;&#x3002;</p>
+<h2 id="&#x6700;&#x4F18;&#x901A;&#x7528;&#x7C7B;&#x578B;&#xFF08;best-common-type&#xFF09;">&#x6700;&#x4F18;&#x901A;&#x7528;&#x7C7B;&#x578B;&#xFF08;Best common type&#xFF09;</h2>
+<p>&#x5F53;&#x7C7B;&#x578B;&#x63A8;&#x5BFC;&#x662F;&#x4ECE;&#x51E0;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x751F;&#x6210;&#x7684;&#x65F6;&#xFF0C;&#x8FD9;&#x4E9B;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x5C31;&#x88AB;&#x7528;&#x4F5C;&#x8BA1;&#x7B97;&#x51FA;&#x4E00;&#x4E2A;&#x201C;&#x6700;&#x4F18;&#x901A;&#x7528;&#x7C7B;&#x578B;&#x201D;&#x3002;&#x6BD4;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> x = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-literal">null</span>];
+</code></pre>
+<p>&#x4E3A;&#x63A8;&#x5BFC;&#x51FA;&#x4E0A;&#x9762;&#x793A;&#x4F8B;&#x4E2D;<code>x</code>&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x5C31;&#x5FC5;&#x987B;&#x8003;&#x8651;&#x5404;&#x4E2A;&#x6570;&#x7EC4;&#x5143;&#x7D20;&#x7684;&#x7C7B;&#x578B;&#x3002;&#x8FD9;&#x91CC;&#x7ED9;&#x5230;&#x7684;&#x8BE5;&#x6570;&#x7EC4;&#x7C7B;&#x578B;&#x6709;&#x4E24;&#x4E2A;&#x9009;&#x62E9;&#xFF1A;<code>number</code>&#x4E0E;<code>null</code>&#x3002; <strong>&#x6700;&#x4F18;&#x901A;&#x7528;&#x7C7B;&#x578B;&#x7B97;&#x6CD5;</strong> &#x5C31;&#x5BF9;&#x5404;&#x4E2A;&#x5019;&#x9009;&#x7C7B;&#x578B;&#x52A0;&#x4EE5;&#x8003;&#x8651;&#xFF0C;&#x5E76;&#x9009;&#x53D6;&#x90A3;&#x4E2A;&#x517C;&#x5BB9;&#x6240;&#x6709;&#x5176;&#x5B83;&#x5019;&#x9009;&#x9879;&#x7684;&#x7C7B;&#x578B;&#xFF08; <strong>the best common type algorithm</strong> considers each candidate type, and picks the type that is compatible with all the other candidates&#xFF09;&#x3002;</p>
+<p>&#x56E0;&#x4E3A;&#x5FC5;&#x987B;&#x8981;&#x4ECE;&#x6240;&#x63D0;&#x4F9B;&#x7684;&#x5019;&#x9009;&#x7C7B;&#x578B;&#x9009;&#x51FA;&#x6700;&#x4F18;&#x901A;&#x7528;&#x7C7B;&#x578B;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x6709;&#x7740;&#x67D0;&#x4E9B;&#x5019;&#x9009;&#x7C7B;&#x578B;&#x5171;&#x4EAB;&#x4E00;&#x4E2A;&#x901A;&#x7528;&#x7ED3;&#x6784;&#xFF0C;&#x5374;&#x5E76;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x4F5C;&#x4E3A;&#x6240;&#x6709;&#x5019;&#x9009;&#x7C7B;&#x578B;&#x8D85;&#x96C6;&#x7684;&#x7C7B;&#x578B;&#x7684;&#x60C5;&#x51B5;&#x3002;&#x6BD4;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> zoo = [<span class="hljs-keyword">new</span> Rhino(), <span class="hljs-keyword">new</span> Elephant(), <span class="hljs-keyword">new</span> Snake()];
+</code></pre>
+<p>&#x7406;&#x60F3;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x53EF;&#x80FD;&#x5E0C;&#x671B;&#x5C06;<code>zoo</code>&#x63A8;&#x5BFC;&#x4E3A;&#x4E00;&#x4E2A;<code>Animal[]</code>&#xFF0C;&#x4F46;&#x56E0;&#x4E3A;&#x8BE5;&#x6570;&#x7EC4;&#x4E2D;&#x6CA1;&#x6709;&#x5BF9;&#x8C61;&#x662F;&#x4E25;&#x683C;&#x7684;<code>Animal</code>&#x7C7B;&#x578B;&#xFF0C;&#x6240;&#x4EE5;&#x65E0;&#x6CD5;&#x505A;&#x51FA;&#x6709;&#x5173;&#x8BE5;&#x6570;&#x7EC4;&#x5143;&#x7D20;&#x7C7B;&#x578B;&#x7684;&#x63A8;&#x5BFC;&#x3002;&#x4E3A;&#x4E86;&#x7EA0;&#x6B63;&#x8FD9;&#x4E00;&#x70B9;&#xFF0C;&#x5C31;&#x8981;&#x5728;&#x6CA1;&#x6709;&#x4E00;&#x79CD;&#x7C7B;&#x578B;&#x662F;&#x5176;&#x5B83;&#x5019;&#x9009;&#x7C7B;&#x578B;&#x7684;&#x8D85;&#x7C7B;&#x578B;&#x65F6;&#xFF0C;&#x63D0;&#x4F9B;&#x663E;&#x5F0F;&#x5730;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> zoo: Animal[] = [<span class="hljs-keyword">new</span> Rhino(), <span class="hljs-keyword">new</span> Elephant(), <span class="hljs-keyword">new</span> Snake()];
+</code></pre>
+<p>&#x800C;&#x5728;&#x627E;&#x4E0D;&#x5230;&#x6700;&#x4F73;&#x901A;&#x7528;&#x7C7B;&#x578B;&#x65F6;&#xFF0C;&#x63A8;&#x5BFC;&#x7ED3;&#x679C;&#x5C31;&#x662F;&#x8054;&#x5408;&#x6570;&#x7EC4;&#x7C7B;&#x578B;&#xFF08;the union array type&#xFF09;&#xFF0C;<code>(Rhino | Elephant | Snake)[]</code>&#x3002;</p>
+<h2 id="&#x4E0A;&#x4E0B;&#x6587;&#x7684;&#x7C7B;&#x578B;&#xFF08;contextual-type&#xFF09;">&#x4E0A;&#x4E0B;&#x6587;&#x7684;&#x7C7B;&#x578B;&#xFF08;Contextual Type&#xFF09;</h2>
+<p>&#x5728;TypeScript&#x4E2D;&#xFF0C;&#x7C7B;&#x578B;&#x63A8;&#x5BFC;&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#x8FD8;&#x4EE5;&#x201C;&#x5176;&#x5B83;&#x65B9;&#x5411;&#x201D;&#x8D77;&#x4F5C;&#x7528;&#xFF08;Type inference also works in &quot;the other direction&quot; in some cases in TypeScript&#xFF09;&#x3002;&#x8FD9;&#x5C31;&#x662F;&#x6240;&#x8C13;&#x7684;&#x201C;&#x4E0A;&#x4E0B;&#x6587;&#x7684;&#x8D4B;&#x4E88;&#x7C7B;&#x578B;&#xFF08;contextual typing&#xFF09;&#x201D;&#x3002;&#x4E0A;&#x4E0B;&#x6587;&#x7C7B;&#x578B;&#x8D4B;&#x4E88;&#x662F;&#x5728;&#x67D0;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x7C7B;&#x578B;&#x7531;&#x5176;&#x6240;&#x5904;&#x4F4D;&#x7F6E;&#x6240;&#x51B3;&#x5B9A;&#x65F6;&#xFF0C;&#x53D1;&#x751F;&#x7684;&#x3002;&#x6BD4;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-built_in">window</span>.onmousedown = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">mouseEvent</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(mouseEvent.button); <span class="hljs-comment">//&lt;- Error</span>
+};
+</code></pre>
+<p>&#x4E3A;&#x4E86;&#x4ECE;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#x68C0;&#x67E5;&#x51FA;&#x9519;&#x8BEF;&#xFF0C;TypeScript&#x7684;&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#x5668;&#x4F7F;&#x7528;&#x4E86;<code>window.onmousedown</code>&#x51FD;&#x6570;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x7C7B;&#x63A8;&#x5BFC;&#x8BE5;&#x8D4B;&#x503C;&#x8BED;&#x53E5;&#x53F3;&#x4FA7;&#x7684;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x7C7B;&#x578B;&#xFF08;For the code above to give the type error, the TypeScript type checker used the type of the <code>window.onmousedown</code> function to infer the type of the function expression on the right hand side of the assignment&#xFF09;&#x3002;&#x5728;&#x5176;&#x8FD9;&#x6837;&#x505A;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x80FD;&#x591F;&#x63A8;&#x5BFC;&#x51FA;<code>mouseEvent</code>&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x578B;&#x3002;&#x800C;&#x5047;&#x5982;&#x8BE5;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#x5E76;&#x4E0D;&#x662F;&#x5728;&#x4E00;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x7C7B;&#x578B;&#x8D4B;&#x4E88;&#x4F4D;&#x7F6E;&#xFF08;not in a contextually typed position&#xFF09;&#xFF0C;&#x90A3;&#x4E48;&#x53C2;&#x6570;<code>mouseEvent</code>&#x5C06;&#x6709;&#x7740;&#x7C7B;&#x578B;<code>any</code>&#xFF0C;&#x4ECE;&#x800C;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x4EFB;&#x4F55;&#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x800C;&#x5982;&#x679C;&#x4E0A;&#x4E0B;&#x6587;&#x7C7B;&#x578B;&#x8D4B;&#x4E88;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#xFF08;the contextually typed expression&#xFF09;&#x5305;&#x542B;&#x4E86;&#x663E;&#x5F0F;&#x7684;&#x7C7B;&#x578B;&#x4FE1;&#x606F;&#xFF0C;&#x90A3;&#x4E48;&#x4E0A;&#x4E0B;&#x6587;&#x7C7B;&#x578B;&#x5C06;&#x88AB;&#x5FFD;&#x7565;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x50CF;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x5199;&#x4E0A;&#x9762;&#x7684;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-built_in">window</span>.onmousedown = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">mouseEvent: <span class="hljs-built_in">any</span></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(mouseEvent.button); <span class="hljs-comment">// &lt;- Now, no error is given</span>
+};
+</code></pre>
+<p>&#x53C2;&#x6570;&#x4E0A;&#x5E26;&#x6709;&#x663E;&#x5F0F;&#x7C7B;&#x578B;&#x6CE8;&#x8BB0;&#x7684;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x5C06;&#x8986;&#x76D6;&#x4E0A;&#x4E0B;&#x6587;&#x7C7B;&#x578B;&#x3002;&#x800C;&#x4E00;&#x65E6;&#x8FD9;&#x6837;&#x505A;&#xFF0C;&#x5C31;&#x4E0D;&#x4F1A;&#x62A5;&#x51FA;&#x9519;&#x8BEF;&#x4E86;&#xFF0C;&#x56E0;&#x4E3A;&#x5E94;&#x7528;&#x6CA1;&#x6709;&#x4E0A;&#x4E0B;&#x6587;&#x7C7B;&#x578B;&#x7279;&#x6027;&#x3002;</p>
+<p>&#x5728;&#x5F88;&#x591A;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E0A;&#x4E0B;&#x6587;&#x7C7B;&#x578B;&#x8D4B;&#x4E88;&#x90FD;&#x5F97;&#x4EE5;&#x5E94;&#x7528;&#x3002;&#x5E38;&#x89C1;&#x7684;&#x5305;&#x62EC;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7684;&#x53C2;&#x6570;&#x3001;&#x8D4B;&#x503C;&#x8BED;&#x53E5;&#x7684;&#x53F3;&#x4FA7;&#x3001;&#x7C7B;&#x578B;&#x65AD;&#x8A00;&#x3001;&#x5BF9;&#x8C61;&#x7684;&#x6210;&#x5458;&#x4E0E;&#x6570;&#x7EC4;&#x5B57;&#x9762;&#x503C;&#xFF0C;&#x4EE5;&#x53CA;&#x8FD4;&#x56DE;&#x8BED;&#x53E5;&#x7B49;&#xFF08;Contextual typing applies in many cases. Common cases include arguments to function calls, right hand sides of assignments, type assertions, members of object and array literals, and return statements&#xFF09;&#x3002;&#x5728;&#x6700;&#x4F73;&#x901A;&#x7528;&#x7C7B;&#x578B;&#x4E2D;&#xFF0C;&#x4E0A;&#x4E0B;&#x6587;&#x7C7B;&#x578B;&#x4E5F;&#x626E;&#x6F14;&#x4E86;&#x4E00;&#x79CD;&#x5019;&#x9009;&#x7C7B;&#x578B;&#x3002;&#x6BD4;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-typescript">function createZoo(): Animal[] {
+    return [new Rhino(), new Elephant(), new Snake()];
+}
+</code></pre>
+<p>&#x5728;&#x6B64;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x6700;&#x4F73;&#x901A;&#x7528;&#x7C7B;&#x578B;&#x6709;&#x7740;&#x56DB;&#x79CD;&#x5019;&#x9009;&#x7C7B;&#x578B;&#x7684;&#x96C6;&#x5408;&#xFF1A;<code>Animal</code>&#x3001;<code>Rhino</code>&#x3001;<code>Elephant</code>&#x4EE5;&#x53CA;<code>Snake</code>&#x3002;&#x5176;&#x4E2D;<code>Animal</code>&#x53EF;&#x80FD;&#x4F1A;&#x88AB;&#x6700;&#x4F73;&#x901A;&#x7528;&#x7C7B;&#x578B;&#x7B97;&#x6CD5;&#x9009;&#x4E2D;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="07_enums.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 枚举">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"类型推导","level":"1.9","depth":1,"previous":{"title":"枚举","level":"1.8","depth":1,"path":"07_enums.md","ref":"07_enums.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"sharing":{"weibo":false,"all":["facebook","google","twitter","weibo","instapaper"],"google":false,"twitter":true,"vk":false,"instapaper":false,"facebook":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"}},"file":{"path":"08_type_inference.md","mtime":"2019-04-03T06:43:16.312Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-04T00:04:23.982Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
