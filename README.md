@@ -1,5 +1,10 @@
 # TypeScript 学习记录
 
+你可以直接在 xfoss.com 阅读本书：[ts.xfoss.com](https://ts.xfoss.com/)。xfoss.com 还有其他书籍：
+
++ [60天通过CCNA考试](https://ccna60d.xfoss.com)，一本基础的网络通讯书，翻译自国外经典 CCNA 60 days
+
+
 ECMAScript 2015 (ES6)已经正式发布，所有浏览器均已支持，同时许多项目，如Angular, Ionic, Electron框架等，均已在往ES6迁移。故需要学习掌握这一新版的Javascript。
 
 ## 变更日志
