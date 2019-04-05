@@ -12,7 +12,7 @@
         "qrcode-list": {
             "title": "打尚&联系",
             "description": "如果您感觉有收获，欢迎给我打赏，以激励我输出更多的优质内容。",
-            "except": "",
+            "except": "谢谢你的支持",
             "lists": [
                 {
                     "src": "./images/a6x09981lks9yco3b8xcqf0.png",
