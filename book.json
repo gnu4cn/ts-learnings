@@ -1,0 +1,31 @@
+{
+    "plugins" : [
+        "highlight-code",
+        "livereload",
+        "lunr",
+        "sharing",
+        "fontsettings",
+        "page-footer",
+        "theme-comscore"
+    ],
+    "pluginsConfig": {
+        "page-footer": {
+            "description": "修改于",
+            "signature": "laxers@gmail.com",
+            "wisdom": "如你觉得此内容对你有用，请考虑进行小额捐赠到支付宝（Alipay）：laxers@gmail.com",
+            "format": "yyyy-MM-dd hh:mm:ss",
+            "copyright": "Copyleft",
+            "timeColor": "#666",
+            "copyrightColor": "#666",
+            "utcOffset": "8",
+            "isShowQRCode": true,
+            "baseUrl": "https://ccna60d.xfoss.com/",
+            "isShowIssues": true,
+            "repo": "gnu4cn/ccna60d",
+            "issueNum": "0",
+            "token": "",
+            "style": "normal"
+        }
+    }
+
+}
