@@ -5,26 +5,21 @@
         "lunr",
         "sharing",
         "fontsettings",
-        "page-footer",
-        "theme-comscore"
+        "theme-comscore",
+        "qrcode-list"
     ],
     "pluginsConfig": {
-        "page-footer": {
-            "description": "修改于",
-            "signature": "laxers@gmail.com",
-            "wisdom": "如你觉得此内容对你有用，请考虑进行小额捐赠到支付宝（Alipay）：laxers@gmail.com",
-            "format": "yyyy-MM-dd hh:mm:ss",
-            "copyright": "Copyleft",
-            "timeColor": "#666",
-            "copyrightColor": "#666",
-            "utcOffset": "8",
-            "isShowQRCode": true,
-            "baseUrl": "https://ts.xfoss.com/",
-            "isShowIssues": true,
-            "repo": "gnu4cn/ccna60d",
-            "issueNum": "0",
-            "token": "",
-            "style": "normal"
+        "qrcode-list": {
+            "title": "打尚&联系",
+            "description": "如果您感觉有收获，欢迎给我打赏，以激励我输出更多的优质内容。",
+            "except": "",
+            "lists": [
+                {
+                    "src": "./images/a6x09981lks9yco3b8xcqf0.png",
+                    "content": "支付宝",
+                    "alt": "支付宝"
+                }
+            ]
         }
     }
 
