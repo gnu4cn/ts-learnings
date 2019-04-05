@@ -62,13 +62,4 @@ TypeScript的许多优势，带来了一种好得多的app开发体验。因此�
 
 针对新特性的详细讨论，并与与实例代码结合。TypeScript是在Javascript的基础上，引入了诸多新特性，本教程将逐一讨论这些新特性，并同时编写相应代码加以验证。
 
-## 捐助此教程
 
-支付宝：
-
-![Alipay: laxer@gmail.com](images/a6x09981lks9yco3b8xcqf0.png "alipay:laxers@gmail.com")
-
-Bitcoin:
-
-
-![bitcoin: ](images/btc-qrcode.png "")
