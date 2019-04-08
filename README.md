@@ -21,7 +21,7 @@ ES6仍然是Javascript, 只不过是在我们已经熟悉的Javascript上加入�
 
 ## ES6的实现
 
-ES6只是新一代Javascript的规范，几大公司、各个浏览器引擎等都有具体的实现。微软的TypeScript、CoffeeScript等都是ES6的具体实现。
+ES6只是新一代Javascript的规范，几大公司、各个浏览器引擎等都有具体的实现。微软TypeScript、社区的CoffeeScript等都是ES6的具体实现。
 
 参考链接：
 
@@ -62,4 +62,106 @@ TypeScript的许多优势，带来了一种好得多的app开发体验。因此�
 
 针对新特性的详细讨论，并与与实例代码结合。TypeScript是在Javascript的基础上，引入了诸多新特性，本教程将逐一讨论这些新特性，并同时编写相应代码加以验证。
 
+## 环境的建立
 
+环境的建立主要由三个文件构成：
+
++ `package.json` -- NodeJS 的项目文件，该文件包含了项目的各种信息与包依赖，比如项目名称、所有者信息、许可证、git地址等信息，包含各种依赖包等。
+
+```json
+{
+    "name": "typescript-learnings",
+    "version": "0.1.0",
+    "description": "TypeScript Learning stuffs.",
+    "main": "/dist/main.js",
+    "scripts": {
+        "gulp": "gulp &",
+        "start": "live-server dist/",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gnu4cn/ts-learnings.git"
+    },
+    "keywords": [
+        "TypeScript"
+    ],
+    "author": "Peng Hailin, unisko@gmail.com",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/gnu4cn/ts-learnings/issues"
+    },
+    "homepage": "https://github.com/gnu4cn/ts-learnings#readme",
+    "devDependencies": {
+        "@types/reflect-metadata": "^0.1.0",
+        "gulp": "^4.0.0",
+        "gulp-sourcemaps": "^2.6.1",
+        "gulp-typescript": "^5.0.1",
+        "gulp-uglify": "^3.0.0",
+        "live-server": "^1.2.0",
+        "typescript": "^3.4.1"
+    },
+    "dependencies": {}
+}
+```
+
+`package.json`文件是所有NodeJS项目都有的文件，有了该文件，就可以使用`npm -i`命令，在本地安装项目依赖包。于是项目就可以运行起来了。
+
++ `tsconfig.json` 文件
+    
+    该文件表明此NodeJS项目是一个 TypeScript项目，其中包含了`files`、`include`、`exclude`、`compilerOptions`等属性，用于将 TypeScript代码编译为 JavaScript目标代码过程。
+
+```json
+{
+    "include": [
+        "src/*.ts"
+    ],
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "target": "es5",
+        "outDir": "dist/",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "types": [
+            "reflect-metadata"
+        ]
+    }
+}
+```
+
++ `gulpfile.js` 文件
+
+    该文件是 Gulp 自动化工具的配置文件。利用 Gulp 来自动化处理有关编译、打包及SourceMap相关工作。在上面的`package.json`文件中包含了对 `gulp`、`gulp-typescript`的依赖，其中`gulp-typescript`就是 Gulp中的 TypeScript编译器。
+
+```javascript
+var gulp = require('gulp');
+var ts = require('gulp-typescript');
+
+var tsProject = ts.createProject('tsconfig.json');
+
+let paths = {
+    pages: ["src/*.html"]
+};
+
+gulp.task("copy-html", ()=>{
+    return gulp.src(paths.pages)
+        .pipe(gulp.dest("dist"))
+});
+
+gulp.task('tsc', () => {
+    return gulp.src('src/*.ts')
+                          .pipe(tsProject())
+                          .pipe(gulp.dest('dist'));
+});
+
+// 这里 watch 里必须使用 gulp.series
+gulp.task('watch', () => {
+    gulp.watch('src/*.ts', gulp.series('tsc'));
+});
+
+
+// 这里必须要有一个 default 任务
+gulp.task('default', gulp.series('copy-html', 'tsc', 'watch'));
+```
+
+有了这三个文件，就意味着环境建立起来了，可以开始TypeScript代码的编写了。`src`目录下的所有`.ts`代码，都将被编译到 `dist`目录下。
