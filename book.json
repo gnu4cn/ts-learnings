@@ -1,4 +1,28 @@
 {
+    "author": "Translated by Peng Hailin, laxers@gmail.com",
+    "description": "这是一本TypeScript编程语言手册",
+    "generator", "xfoss.com 网站",
+    "links": {
+        "sharing": {
+            "weibo": null
+        },
+        "sidebar": {
+            "ts.xfoss.com": "https://ts.xfoss.com/"
+        }
+    },
+    "pdf": {
+        "fontSize": 12,
+        "footerTemplate": null,
+        "headerTemplate": null,
+        "margin": {
+            "bottom": 36,
+            "left": 62,
+            "right": 62,
+            "top": 36
+        },
+        "pageNumbers": false,
+        "paperSize": "a4"
+    },
     "plugins" : [
         "highlight-code",
         "livereload",
