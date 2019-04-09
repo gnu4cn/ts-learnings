@@ -3,6 +3,9 @@
 你可以直接在 xfoss.com 阅读本书：[ts.xfoss.com](https://ts.xfoss.com/)。xfoss.com 还有其他书籍：
 
 + [60天通过CCNA考试](https://ccna60d.xfoss.com)，一本基础的网络通讯书，翻译自国外经典 CCNA 60 days
++ [Wagtail CMS内容管理系统教程](https://wagtail.xfoss.com)，一本有关强大的、基于Python Django web框架的 Wagtail 内容管理系统的教程
+
+
 
 
 你可以在 https://github.com/gnu4cn/ts-learnings 上 fork 本项目，并提交你的修正。
