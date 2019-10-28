@@ -23,12 +23,12 @@
     "homepage": "https://github.com/gnu4cn/ts-learnings#readme",
     "devDependencies": {
         "@types/reflect-metadata": "^0.1.0",
-        "gulp": "^4.0.0",
+        "gulp": "^4.0.2",
         "gulp-sourcemaps": "^2.6.1",
         "gulp-typescript": "^5.0.1",
         "gulp-uglify": "^3.0.0",
         "live-server": "^1.2.0",
-        "typescript": "^3.4.1"
+        "typescript": "^3.6.4"
     },
     "dependencies": {}
 }
