@@ -1,2 +1,2 @@
-let a: Symbol = Symbol('one');
+let a: Symbol;
 console.log(a);
