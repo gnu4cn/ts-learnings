@@ -32,7 +32,8 @@ gulp.task("copy-html", () => {
 
 // 这里 watch 里必须使用 gulp.series
 gulp.task('watch', () => {
-    gulp.watch('./src/namespace/*.ts', gulp.series('clean', 'transpile-ts'));
+    // 这里监视所有src及其所有子文件夹下的ts文件
+    gulp.watch('./src/**/*.ts', gulp.series('clean', 'copy-html', 'transpile-ts'));
 });
 
 
