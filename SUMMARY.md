@@ -11,7 +11,7 @@
 * [接口](04_interfaces.md)
 * [函数](05_functions.md)
 
-# 进阶
+## 进阶
 
 
 * [泛型](06_generics.md)
