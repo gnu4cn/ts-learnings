@@ -205,10 +205,11 @@ console.log(new Greeter("world"));
 
 1. 静态成员的类构造函数，或实例成员的类的原型（Either the constructor function of the class for a static member, or the prototype of the class for an instance member, ）。
 
-> 关于静态成员与实例成员的区别：
 
-> 前面所说的都是对于类的实例成员，在实例化后的对象才会起作用。可以使用static定义类中的静态成员，所有实例可以使用this中的名称来访问静态成员。 
-> [TypeScript笔记](http://yrq110.me/2018/01/06/20180106-typescript-note/)
+    > 关于静态成员与实例成员的区别：
+
+    > 前面所说的都是对于类的实例成员，在实例化后的对象才会起作用。可以使用static定义类中的静态成员，所有实例可以使用this中的名称来访问静态成员。 
+    > [TypeScript笔记](http://yrq110.me/2018/01/06/20180106-typescript-note/)
 
 2. 成员的名称。
 

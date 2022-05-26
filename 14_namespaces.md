@@ -251,5 +251,3 @@ declare namespace D3 {
 
 declare var d3: D3.Base;
 ```
-
-

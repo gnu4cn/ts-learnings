@@ -112,9 +112,6 @@
 
 6. `/root/node_modules/moduleB/index.js`
 
-
-
-
 7. `/node_modules/moduleB.js`
 
 8. `/node_modules/moduleB/package.json`  （在该文件指明了一个`main`属性时）
@@ -158,7 +155,6 @@
 
 3. `/root/src/node_modules/moduleB.d.ts`
 
-
 4. `/root/src/node_modules/moduleB/package.json` （在其指明了`types`属性时）
 
 5. `/root/src/node_modules/moduleB/index.ts`
@@ -167,13 +163,11 @@
 
 7. `/root/src/node_modules/moduleB/index.d.ts`
 
-
 8. `/root/node_modules/moduleB.ts`
 
 9. `/root/node_modules/moduleB.tsx`
 
 10. `/root/node_modules/moduleB.d.ts`
-
 
 11. `/root/node_modules/moduleB/package.json`  （在其指明了`types`属性时）
 
@@ -183,14 +177,11 @@
 
 14. `/root/node_modules/moduleB/index.d.ts`
 
-
 15. `/node_modules/moduleB.ts`
 
 16. `/node_modules/moduleB.tsx`
 
 17. `/node_modules/moduleB.d.ts`
-
-
 
 18. `/node_modules/moduleB/package.json`  （在其指明了`types`属性时）
 
