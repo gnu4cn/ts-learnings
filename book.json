@@ -2,14 +2,6 @@
     "author": "Translated by Peng Hailin, laxers@gmail.com",
     "description": "这是一本TypeScript编程语言手册",
     "generator": "xfoss.com 网站",
-    "links": {
-        "sharing": {
-            "weibo": null
-        },
-        "sidebar": {
-            "ts.xfoss.com": "https://ts.xfoss.com/"
-        }
-    },
     "pdf": {
         "fontSize": 12,
         "footerTemplate": null,
@@ -23,33 +15,71 @@
         "pageNumbers": false,
         "paperSize": "a4"
     },
-    "plugins" : [
+    "plugins": [
         "highlight-code",
-        "livereload",
-        "lunr",
-        "sharing",
         "fontsettings",
-        "theme-comscore",
-        "qrcode-list"
+        "include-codeblock@^3.0.2",
+        "tbfed-pagefooter@^0.0.1",
+        "sectionx@^3.1.0",
+        "sitemap",
+        "code",
+        "-lunr",
+        "-search",
+        "-sharing",
+        "-fontsettings",
+        "cuav-chapters",
+        "heading-anchors",
+        "splitter",
+        "theme-door",
+        "search-pro-fixed"
     ],
-    "pluginsConfig": {
-        "qrcode-list": {
-            "title": "打尚&联系",
-            "description": "如果您感觉有收获，欢迎给我打赏，以激励我输出更多的优质内容。",
-            "except": ["谢谢你的支持"],
-            "lists": [
+    "variables": {
+        "doorTheme": {
+            "nav": [
                 {
-                    "src": "./images/a6x09981lks9yco3b8xcqf0.png",
-                    "content": "支付宝",
-                    "alt": "支付宝"
+                    "url": "https://java-lang.xfoss.com",
+                    "target": "_blank",
+                    "name": "学习 Java · ☕"
                 },
                 {
-                    "src": "./images/wechat-pay.png",
-                    "content": "微信支付",
-                    "alt": "微信支付"
+                    "url": "https://java-lang.xfoss.com",
+                    "target": "_blank",
+                    "name": "学习 Java · ☕"
+                },
+                {
+                    "url": "https://ccna.xfoss.com",
+                    "target": "_blank",
+                    "name": "学习 “网络通信” 技术 CCNA · 🖧"
+                },
+                {
+                    "url": "https://xfoss.com",
+                    "target": "_blank",
+                    "name": "捐助，donation · 💰"
                 }
             ]
         }
+    },
+    "pluginsConfig": {
+        "doorTheme": {
+            "search-placeholder": "请输入关键字搜索",
+            "logo": "./images/typescript-logo.png",
+            "favicon": "./docs/images/typescript-fav-icon.png"
+        },
+        "include-codeblock": {
+            "template": "ace",
+            "unindent": true,
+            "edit": true
+        },
+        "tbfed-pagefooter": {
+            "copyright": "Copyleft @ rust.xfoss.com 2022",
+            "modify_label": "该文件修订时间：",
+            "modify_format": "YYYY-MM-DD HH:mm:ss"
+        },
+        "sectionx": {
+            "tag": "b"
+        },
+        "sitemap": {
+            "hostname": "https://ts-lang.xfoss.com/"
+        }
     }
-
 }
