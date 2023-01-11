@@ -6,7 +6,7 @@
     "scripts": {
         "gulp": "gulp",
         "start": "live-server dist/",
-        "sl-checkout": "sl pull && sl go main",
+        "sl-checkout": "sl pull && sl go master",
         "sl-push": "sl add . && sl commit -m \"Updated.\" && sl push",
         "git-push": "git add . && git commit -m \"Updated.\" && git push",
         "serve": "npx honkit serve --port=10447 --lrport=35713 &"
