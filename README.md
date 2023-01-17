@@ -1,9 +1,12 @@
 # TypeScript 学习记录
 
-你可以直接在 xfoss.com 阅读本书：[ts.xfoss.com](https://ts.xfoss.com/)。xfoss.com 还有其他书籍：
+你可以直接在 xfoss.com 阅读本书：[ts-lang.xfoss.com](https://ts-lang.xfoss.com/)。xfoss.com 还有其他书籍：
 
-+ [60天通过CCNA考试](https://ccna60d.xfoss.com)，一本基础的网络通讯书，翻译自国外经典 CCNA 60 days
-+ [Wagtail CMS内容管理系统教程](https://wagtail.xfoss.com)，一本有关强大的、基于Python Django web框架的 Wagtail 内容管理系统的教程
+- [Rust 编程语言](https://rust-lang.xfoss.com)，Rust 官方教程中文翻译
+
+- [Java 编程语言](https://java-lang.xfoss.com)，"Head First Java" 书中文翻译
+
+- [60天通过CCNA考试](https://ccna.xfoss.com)，一本基础的网络通讯书，翻译自国外经典 CCNA 60 days
 
 
 
