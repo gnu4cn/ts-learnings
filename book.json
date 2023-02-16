@@ -67,11 +67,11 @@
           "name": "Rust 编程语言 · ⚙️"
         },
         {
-          "url": "https://java-lang.xfoss.com",
+          "url": "https://java.xfoss.com",
           "name": "Java 编程语言 · ☕"
         },
         {
-          "url": "https://ccna.xfoss.com",
+          "url": "https://ccna60d.xfoss.com",
           "name": "“网络通信” 技术 CCNA · 🖧"
         },
         {
@@ -85,7 +85,7 @@
       ]
     },
     "sitemap": {
-      "hostname": "https://ts-lang.xfoss.com/"
+      "hostname": "https://ts.xfoss.com/"
     }
   }
 }
