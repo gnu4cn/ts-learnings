@@ -6,7 +6,7 @@
 
 - [Java 编程语言](https://java.xfoss.com)，"Head First Java" 书中文翻译
 
-- [60天通过CCNA考试](https://ccna60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d.xfoss.com)，一本基础的网络通讯书，翻译自国外经典 CCNA 60 days
+- [60天通过CCNA考试](https://ccna60d.xfoss.com)，一本基础的网络通讯书，翻译自国外经典 CCNA 60 days
 
 
 
@@ -114,7 +114,7 @@ TypeScript的许多优势，带来了一种好得多的app开发体验。因此�
 `package.json`文件是所有NodeJS项目都有的文件，有了该文件，就可以使用`npm -i`命令，在本地安装项目依赖包。于是项目就可以运行起来了。
 
 + `tsconfig.json` 文件
-    
+
     该文件表明此NodeJS项目是一个 TypeScript项目，其中包含了`files`、`include`、`exclude`、`compilerOptions`等属性，用于将 TypeScript代码编译为 JavaScript目标代码过程。
 
 ```json

@@ -1,0 +1,360 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>TypeScript手册</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html" class="active">TypeScript手册</a></li><li class="chapter-item expanded "><a href="00_tsconfig-json.html"><strong aria-hidden="true">1.</strong> tsconfig.json</a></li><li class="chapter-item expanded "><a href="01_basic_data_types.html"><strong aria-hidden="true">2.</strong> 基本数据类型</a></li><li class="chapter-item expanded "><a href="02_variables_declaration.html"><strong aria-hidden="true">3.</strong> 变量声明</a></li><li class="chapter-item expanded "><a href="03_classes.html"><strong aria-hidden="true">4.</strong> 类</a></li><li class="chapter-item expanded "><a href="04_interfaces.html"><strong aria-hidden="true">5.</strong> 接口</a></li><li class="chapter-item expanded "><a href="05_functions.html"><strong aria-hidden="true">6.</strong> 函数</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">进阶</li><li class="chapter-item expanded "><a href="06_generics.html"><strong aria-hidden="true">7.</strong> 泛型</a></li><li class="chapter-item expanded "><a href="07_enums.html"><strong aria-hidden="true">8.</strong> 枚举</a></li><li class="chapter-item expanded "><a href="08_type_inference.html"><strong aria-hidden="true">9.</strong> 类型推导</a></li><li class="chapter-item expanded "><a href="09_type_compatibility.html"><strong aria-hidden="true">10.</strong> 类型兼容性</a></li><li class="chapter-item expanded "><a href="10_advanced_types.html"><strong aria-hidden="true">11.</strong> 高级类型</a></li><li class="chapter-item expanded "><a href="11_symbols.html"><strong aria-hidden="true">12.</strong> 符号</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">高级特性</li><li class="chapter-item expanded "><a href="12_iterators_and_generators.html"><strong aria-hidden="true">13.</strong> 迭代器与生成器</a></li><li class="chapter-item expanded "><a href="13_modules.html"><strong aria-hidden="true">14.</strong> 模块</a></li><li class="chapter-item expanded "><a href="14_namespaces.html"><strong aria-hidden="true">15.</strong> 命名空间</a></li><li class="chapter-item expanded "><a href="15_modules_and_namespaces.html"><strong aria-hidden="true">16.</strong> 模块与命名空间</a></li><li class="chapter-item expanded "><a href="16_module_resolution.html"><strong aria-hidden="true">17.</strong> 模块解析</a></li><li class="chapter-item expanded "><a href="17_declaration_merging.html"><strong aria-hidden="true">18.</strong> 声明的融合</a></li><li class="chapter-item expanded "><a href="18_jsx.html"><strong aria-hidden="true">19.</strong> JSX</a></li><li class="chapter-item expanded "><a href="19_decorators.html"><strong aria-hidden="true">20.</strong> 装饰器</a></li><li class="chapter-item expanded "><a href="20_mixins.html"><strong aria-hidden="true">21.</strong> 混入Mixins</a></li><li class="chapter-item expanded "><a href="21_triple-slash_directives.html"><strong aria-hidden="true">22.</strong> 三斜杠指令</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="typescript-学习记录"><a class="header" href="#typescript-学习记录">TypeScript 学习记录</a></h1>
+<p>你可以直接在 xfoss.com 阅读本书：<a href="https://ts.xfoss.com/">ts.xfoss.com</a>。xfoss.com 还有其他书籍：</p>
+<ul>
+<li>
+<p><a href="https://rust-lang.xfoss.com">Rust 编程语言</a>，Rust 官方教程中文翻译</p>
+</li>
+<li>
+<p><a href="https://java.xfoss.com">Java 编程语言</a>，&quot;Head First Java&quot; 书中文翻译</p>
+</li>
+<li>
+<p><a href="https://ccna60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d60d.xfoss.com">60天通过CCNA考试</a>，一本基础的网络通讯书，翻译自国外经典 CCNA 60 days</p>
+</li>
+</ul>
+<p>你可以在 https://github.com/gnu4cn/ts-learnings 上 fork 本项目，并提交你的修正。</p>
+<p>ECMAScript 2015 (ES6)已经正式发布，所有浏览器均已支持，同时许多项目，如Angular, Ionic, Electron框架等，均已在往ES6迁移。故需要学习掌握这一新版的Javascript。</p>
+<h2 id="变更日志"><a class="header" href="#变更日志">变更日志</a></h2>
+<ul>
+<li>2019-3-27, 重新整理<code>package.json</code>、<code>tsconfig.json</code>与<code>gulpfile.js</code>文件，让<code>.gitignore</code>生效，令到项目大小得以缩小</li>
+</ul>
+<h2 id="es6与-javascript"><a class="header" href="#es6与-javascript">ES6与 Javascript</a></h2>
+<p>ES6仍然是Javascript, 只不过是在我们已经熟悉的Javascript上加入了一些新的东西。使得Javascript更为强大，可以应对大型程序的要求。</p>
+<h2 id="es6的实现"><a class="header" href="#es6的实现">ES6的实现</a></h2>
+<p>ES6只是新一代Javascript的规范，几大公司、各个浏览器引擎等都有具体的实现。微软TypeScript、社区的CoffeeScript等都是ES6的具体实现。</p>
+<p>参考链接：</p>
+<ul>
+<li>https://blog.mariusschulz.com/2017/01/13/typescript-vs-flow</li>
+<li>http://blog.ionicframework.com/ionic-and-typescript-part-1/</li>
+</ul>
+<p>鉴于Angular与Ionic都是使用了微软的TypeScript, 因此在学习ES6时，将学习TypeScript这一实现。</p>
+<h2 id="关于typescript"><a class="header" href="#关于typescript">关于TypeScript</a></h2>
+<p>TypeScript是Javascript的超集，有着以下优势：</p>
+<ul>
+<li>可选的静态类型（关键就是这里的“可选”, Optional static typing, the key here is optional）</li>
+<li>类型推理，此特性在并没有使用到类型的情况下，带来那些类型的诸多益处（Type Inference, which gives some of the benefits of types, without actually using them）</li>
+<li>可在主流浏览器尚未对ES6/ES7提供支持之前，通过TypeScript用上ES6及ES7的特性</li>
+<li>TypeScript有着将程序向下编译到所有浏览器都支持的某个Javascript版本的能力</li>
+<li>IntelliSense提供了极好的工具支持</li>
+</ul>
+<p>因为TypeScript带给如你一样的开发者这些不错的特性及巨大优势，Ionic是以TypeScript编写的，而不是ES6（这里就表明了<strong>TypeScript并不是ES6</strong>）。</p>
+<h3 id="关于可选的静态类型"><a class="header" href="#关于可选的静态类型">关于可选的静态类型</a></h3>
+<p>可能TypeScript最能打动人心的，就是其所提供到的可选静态类型系统了。将给变量、函数、属性等加上类型。这将帮到编译器，且在app尚未运行时，就给出有关代码中任何潜在错误的警告。在使用到库及框架时，类型也有帮助，这是由于类型可令到开发者准确知悉那些APIs期望何种类型的数据。而关于类型系统，你首先要记住的是它是可选的。TypeScript并不强制要求开发者在他们不想添加的上必须添加类型。但随着应用变得越来越大、越来越复杂，类型确实可以提供到一些很棒的优势。</p>
+<p>关于 IntelliSense:</p>
+<blockquote>
+<p>一种 Microsoft 技术，这种技术通过在光标悬停在函数上时显示类定义和注释，从而让您可以分析源代码。当您在 IDE 中键入函数名时，IntelliSense 还可以完成这些名称。</p>
+</blockquote>
+<p>TypeScript的一大优势，就是其代码补全与IntelliSense了。IntelliSense在敲入代码时，提供有用的提示。因为Ionic本身就是用TypeScript写就的，代码编辑器就可以展示出所有可用的方法，以及这些方法所期望的参数。当今所有最好的集成开发环境，比如VScode、Atom、Sublime text，甚至那些诸如Vim/Neovim等命令行的编辑器，都有对代码补全的支持。</p>
+<p>TypeScript的许多优势，带来了一种好得多的app开发体验。因此，Ionic将全力压注到TypeScript上，而不提供ES6的启动器。</p>
+<p>摘录自：</p>
+<blockquote>
+<p><a href="https://ionicframework.com/docs/developer-resources/typescript/">TypeScript的优势</a></p>
+</blockquote>
+<h2 id="本教程特色"><a class="header" href="#本教程特色">本教程特色</a></h2>
+<p>针对新特性的详细讨论，并与与实例代码结合。TypeScript是在Javascript的基础上，引入了诸多新特性，本教程将逐一讨论这些新特性，并同时编写相应代码加以验证。</p>
+<h2 id="环境的建立"><a class="header" href="#环境的建立">环境的建立</a></h2>
+<p>环境的建立主要由三个文件构成：</p>
+<ul>
+<li><code>package.json</code> -- NodeJS 的项目文件，该文件包含了项目的各种信息与包依赖，比如项目名称、所有者信息、许可证、git地址等信息，包含各种依赖包等。</li>
+</ul>
+<pre><code class="language-json">{
+    &quot;name&quot;: &quot;typescript-learnings&quot;,
+    &quot;version&quot;: &quot;0.1.0&quot;,
+    &quot;description&quot;: &quot;TypeScript Learning stuffs.&quot;,
+    &quot;main&quot;: &quot;/dist/main.js&quot;,
+    &quot;scripts&quot;: {
+        &quot;gulp&quot;: &quot;gulp &amp;&quot;,
+        &quot;start&quot;: &quot;live-server dist/&quot;,
+        &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+    },
+    &quot;repository&quot;: {
+        &quot;type&quot;: &quot;git&quot;,
+        &quot;url&quot;: &quot;git+https://github.com/gnu4cn/ts-learnings.git&quot;
+    },
+    &quot;keywords&quot;: [
+        &quot;TypeScript&quot;
+    ],
+    &quot;author&quot;: &quot;Peng Hailin, unisko@gmail.com&quot;,
+    &quot;license&quot;: &quot;ISC&quot;,
+    &quot;bugs&quot;: {
+        &quot;url&quot;: &quot;https://github.com/gnu4cn/ts-learnings/issues&quot;
+    },
+    &quot;homepage&quot;: &quot;https://github.com/gnu4cn/ts-learnings#readme&quot;,
+    &quot;devDependencies&quot;: {
+        &quot;@types/reflect-metadata&quot;: &quot;^0.1.0&quot;,
+        &quot;gulp&quot;: &quot;^4.0.0&quot;,
+        &quot;gulp-sourcemaps&quot;: &quot;^2.6.1&quot;,
+        &quot;gulp-typescript&quot;: &quot;^5.0.1&quot;,
+        &quot;gulp-uglify&quot;: &quot;^3.0.0&quot;,
+        &quot;live-server&quot;: &quot;^1.2.0&quot;,
+        &quot;typescript&quot;: &quot;^3.4.1&quot;
+    },
+    &quot;dependencies&quot;: {}
+}
+</code></pre>
+<p><code>package.json</code>文件是所有NodeJS项目都有的文件，有了该文件，就可以使用<code>npm -i</code>命令，在本地安装项目依赖包。于是项目就可以运行起来了。</p>
+<ul>
+<li>
+<p><code>tsconfig.json</code> 文件</p>
+<p>该文件表明此NodeJS项目是一个 TypeScript项目，其中包含了<code>files</code>、<code>include</code>、<code>exclude</code>、<code>compilerOptions</code>等属性，用于将 TypeScript代码编译为 JavaScript目标代码过程。</p>
+</li>
+</ul>
+<pre><code class="language-json">{
+    &quot;include&quot;: [
+        &quot;src/*.ts&quot;
+    ],
+    &quot;compilerOptions&quot;: {
+        &quot;noImplicitAny&quot;: true,
+        &quot;target&quot;: &quot;es5&quot;,
+        &quot;outDir&quot;: &quot;dist/&quot;,
+        &quot;experimentalDecorators&quot;: true,
+        &quot;emitDecoratorMetadata&quot;: true,
+        &quot;types&quot;: [
+            &quot;reflect-metadata&quot;
+        ]
+    }
+}
+</code></pre>
+<ul>
+<li>
+<p><code>gulpfile.js</code> 文件</p>
+<p>该文件是 Gulp 自动化工具的配置文件。利用 Gulp 来自动化处理有关编译、打包及SourceMap相关工作。在上面的<code>package.json</code>文件中包含了对 <code>gulp</code>、<code>gulp-typescript</code>的依赖，其中<code>gulp-typescript</code>就是 Gulp中的 TypeScript编译器。</p>
+</li>
+</ul>
+<pre><code class="language-javascript">var gulp = require('gulp');
+var ts = require('gulp-typescript');
+
+var tsProject = ts.createProject('tsconfig.json');
+
+let paths = {
+    pages: [&quot;src/*.html&quot;]
+};
+
+gulp.task(&quot;copy-html&quot;, ()=&gt;{
+    return gulp.src(paths.pages)
+        .pipe(gulp.dest(&quot;dist&quot;))
+});
+
+gulp.task('tsc', () =&gt; {
+    return gulp.src('src/*.ts')
+                          .pipe(tsProject())
+                          .pipe(gulp.dest('dist'));
+});
+
+// 这里 watch 里必须使用 gulp.series
+gulp.task('watch', () =&gt; {
+    gulp.watch('src/*.ts', gulp.series('tsc'));
+});
+
+
+// 这里必须要有一个 default 任务
+gulp.task('default', gulp.series('copy-html', 'tsc', 'watch'));
+</code></pre>
+<p>有了这三个文件，就意味着环境建立起来了，可以开始TypeScript代码的编写了。<code>src</code>目录下的所有<code>.ts</code>代码，都将被编译到 <code>dist</code>目录下。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+                            <a rel="next" href="00_tsconfig-json.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+                    <a rel="next" href="00_tsconfig-json.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
