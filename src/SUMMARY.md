@@ -11,7 +11,7 @@
 - [函数](05_functions.md)
 
 ---
-## 进阶
+# 进阶
 
 
 - [泛型](06_generics.md)
@@ -22,7 +22,7 @@
 - [符号](11_symbols.md)
 
 ---
-## 高级特性
+# 高级特性
 
 
 - [迭代器与生成器](12_iterators_and_generators.md)
