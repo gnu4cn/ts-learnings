@@ -1,5 +1,10 @@
 # Logs
 book
+
+theme/index.hbs
+theme/pagetoc.css
+theme/pagetoc.js
+
 logs
 *.log
 npm-debug.log*
