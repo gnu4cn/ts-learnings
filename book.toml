@@ -9,3 +9,8 @@ title = "Yet another Chinese TypeScript tutorial."
 [output.html]
 additional-css = ["theme/pagetoc.css"]
 additional-js  = ["theme/pagetoc.js"]
+git-repository-url = "https://github.com/gnu4cn/ts-learnings"
+git-repository-icon = "fa-github"
+
+[output.html.print]
+enable = false
