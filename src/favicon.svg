@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve">
+<style type="text/css">
+	.st0{opacity:0.15;fill:#45413C;}
+	.st1{fill:#BF8256;}
+	.st2{fill:#915E3A;}
+	.st3{fill:none;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st4{fill:#DEA47A;}
+	.st5{fill:#DAEDF7;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st6{fill:#BF8256;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st7{fill:#FF6242;}
+	.st8{fill:#FF866E;}
+	.st9{fill:#DEBB7E;}
+	.st10{fill:#B89558;}
+	.st11{fill:#656769;}
+	.st12{fill:#525252;}
+	.st13{fill:#E04122;}
+	.st14{fill:#FFFFFF;}
+	.st15{fill:#F0F0F0;}
+	.st16{fill:#00B8F0;}
+	.st17{fill:#4ACFFF;}
+	.st18{fill:#C0DCEB;}
+	.st19{fill:#8CA4B8;}
+	.st20{fill:#FF6242;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st21{fill:#87898C;}
+	.st22{fill:#E0E0E0;}
+	.st23{fill:#E8F4FA;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st24{fill:#656769;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st25{fill:#DAEDF7;}
+	.st26{fill:#E8F4FA;}
+	.st27{fill:#ADC4D9;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st28{fill:#87898C;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st29{fill:#BDBEC0;}
+	.st30{fill:#FFFFFF;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st31{fill:#ADC4D9;}
+	.st32{fill:none;stroke:#00AED9;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st33{fill:#FFFACF;}
+	.st34{fill:#FFE500;}
+	.st35{fill:#915E3A;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st36{fill:#FFAA54;}
+	.st37{fill:#627B8C;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st38{fill:#FFFEF2;}
+	.st39{fill:#FFFCE5;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st40{fill:#00F5BC;}
+	.st41{fill:#FFFCE5;}
+	.st42{fill:#FFFEF2;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st43{fill:#8CFFE4;}
+	.st44{fill:#FFF5E3;}
+	.st45{fill:#F7E5C6;}
+	.st46{fill:#F7E5C6;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st47{fill:#F0D5A8;}
+	.st48{fill:#FF87AF;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st49{fill:#45413C;}
+	.st50{fill:#BDBEC0;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st51{fill:#E0E0E0;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st52{fill:#DEBB7E;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st53{fill:#F5EBFF;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st54{fill:#BF8DF2;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st55{fill:#E4FFD1;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st56{fill:#F0FFE5;}
+	.st57{fill:#C8FFA1;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st58{fill:#6DD627;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st59{fill:#E5FEFF;}
+	.st60{fill:#FFAA54;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st61{fill:#9CEB60;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st62{fill:#FFF48C;}
+	.st63{fill:#00B8F0;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st64{fill:none;stroke:#4F4B45;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st65{fill:#FFFFFF;stroke:#4F4B45;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st66{fill:#FFF5E3;stroke:#4F4B45;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st67{fill:#F7E5C6;stroke:#4F4B45;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st68{fill:#6DD627;}
+	.st69{fill:#EBCB00;}
+	.st70{fill:#46B000;}
+	.st71{fill:none;stroke:#E0E0E0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st72{fill:#9CEB60;}
+	.st73{fill:#FFCC99;}
+	.st74{fill:#BF8DF2;}
+	.st75{fill:#9F5AE5;}
+	.st76{fill:#DABFF5;}
+	.st77{fill:#F0F0F0;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st78{fill:#E5F8FF;}
+	.st79{fill:#B8ECFF;}
+	.st80{fill:#D9FDFF;}
+	.st81{fill:#C0DCEB;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st82{fill:#46B000;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st83{fill:none;stroke:#FFFFFF;stroke-miterlimit:10;}
+	.st84{fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st85{fill:#FFE500;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st86{fill:#80DDFF;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st87{fill:#FFFFFF;stroke:#45413C;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st88{fill:#009FD9;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st89{fill:#E04122;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st90{fill:#009FD9;}
+	.st91{fill:#FFFFFF;stroke:#45413C;stroke-miterlimit:10;}
+	.st92{fill:#009FD9;stroke:#45413C;stroke-miterlimit:10;}
+	.st93{fill:#FF8A14;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st94{fill:none;stroke:#009FD9;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st95{fill:#525252;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st96{fill:none;stroke:#46B000;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st97{fill:none;stroke:#E04122;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st98{fill:#6DD627;stroke:#45413C;stroke-miterlimit:10;}
+	.st99{fill:none;stroke:#45413C;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st100{fill:#46B000;stroke:#45413C;stroke-miterlimit:10;}
+	.st101{fill:#00DFEB;}
+	.st102{fill:#00AD85;}
+	.st103{fill:#E04122;stroke:#45413C;stroke-miterlimit:10;}
+</style>
+<g id="XMLID_17281_">
+	<ellipse id="XMLID_17296_" class="st0" cx="24" cy="45.1" rx="14.2" ry="1.9"/>
+	<path class="st44" d="M10.4,7.5v29.1c0,1.6-0.4,3-2.1,3h27.6c1.6,0,2.1-1.3,2.1-3V7.5H10.4z"/>
+	<g id="XMLID_17294_">
+		<rect id="XMLID_17295_" x="10.4" y="7.5" class="st45" width="27.6" height="5.4"/>
+	</g>
+	<path id="XMLID_17293_" class="st3" d="M38,36.6c0,1.6-0.4,3-2.1,3l0,0H8.4h0c1.6,0,2.1-1.3,2.1-3V7.5H38V36.6z"/>
+	<path class="st46" d="M33.6,36.6v-0.8H6v0.8c0,1.6,0.7,3,2.4,3h27.6C34.3,39.6,33.6,38.2,33.6,36.6z"/>
+	<path id="XMLID_17292_" class="st45" d="M9.4,5.1c-0.9,0-1.5,1.1-1.5,2.4s0.7,2.4,1.5,2.4h27V5.1H9.4z"/>
+	<path id="XMLID_17291_" class="st44" d="M9.4,5.1c-0.9,0-1.5,1.1-1.5,2.4c0,0.4,0.1,0.7,0.2,1.1c0.3-0.8,0.8-1.3,1.4-1.3h27V5.1   H9.4z"/>
+	<path id="XMLID_17290_" class="st3" d="M9.4,5.1c-0.9,0-1.5,1.1-1.5,2.4s0.7,2.4,1.5,2.4h27V5.1H9.4z"/>
+	<ellipse id="XMLID_17289_" class="st47" cx="36.5" cy="7.5" rx="1.5" ry="2.4"/>
+	<path id="XMLID_17288_" class="st9" d="M36.5,7c0.6,0,1.2,0.6,1.4,1.4C38,8.1,38,7.8,38,7.5c0-1.3-0.7-2.4-1.5-2.4   c-0.9,0-1.5,1.1-1.5,2.4c0,0.3,0,0.6,0.1,0.9C35.3,7.6,35.8,7,36.5,7z"/>
+	<ellipse id="XMLID_17287_" class="st3" cx="36.5" cy="7.5" rx="1.5" ry="2.4"/>
+	<line id="XMLID_17286_" class="st3" x1="14.3" y1="14.1" x2="28.1" y2="14.1"/>
+	<line id="XMLID_17285_" class="st3" x1="14.3" y1="27.6" x2="28.1" y2="27.6"/>
+	<line id="XMLID_17284_" class="st3" x1="14.3" y1="31.2" x2="30.3" y2="31.2"/>
+	<line id="XMLID_17283_" class="st3" x1="14.3" y1="17.5" x2="33.2" y2="17.5"/>
+	<line id="XMLID_17282_" class="st3" x1="14.3" y1="21" x2="33.2" y2="21"/>
+</g>
+</svg>
