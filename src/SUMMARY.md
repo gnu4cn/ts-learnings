@@ -3,6 +3,9 @@
 
 
 [TypeScript手册](../README.md)
+
+---
+
 - [tsconfig.json](00_tsconfig-json.md)
 - [基本数据类型](01_basic_data_types.md)
 - [变量声明](02_variables_declaration.md)
