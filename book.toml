@@ -15,3 +15,6 @@ google-analytics="G-VP1TNZE5KK"
 
 [output.html.print]
 enable = false
+
+[output.html.search]
+enable = false
