@@ -4,6 +4,12 @@ language = "zh"
 multilingual = false
 src = "src"
 title = "Yet another Chinese TypeScript tutorial."
+description = "又一本 TypeScript 教程。"
+
+[preprocessor.last-changed]
+command = "mdbook-last-changed"
+renderer = ["html"]
+
 
 [preprocessor.pagetoc]
 [output.html]
